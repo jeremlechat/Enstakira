@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body class="bg-black flex justify-center items-center h-screen overflow-hidden">
+
+    <!-- Conteneur pour l'image de fond -->
+    <div id="background" class="absolute top-0 left-0 w-full h-full bg-cover bg-center bg-no-repeat z-[-1] transition-all duration-500 filter brightness-50"
+        style="background-image: url('assets/output.gif');"></div>
+
+    <!-- Conteneur principal -->
+    <div id="container" class="text-center flex flex-col justify-center items-center h-full">
+
+        <!-- Image avec effet de lueur -->
+        <img id="shiny-image" src="assets/title.png" alt="Enst'Akira"
+            class="w-auto max-w-2xl opacity-0 image-shadow-glow glowing-image transition-all duration-1000">
+
+        <!-- Conteneur des boutons (initialement cachés) -->
+        <div id="link-buttons" class="fixed bottom-0 left-1/2 transform -translate-x-1/2 text-center flex flex-row opacity-0">
+            <button onclick="window.location.href='list.html'" class="akira-button my-2 opacity-0">Qui Sommes-Nous?</button>
+            <button onclick="window.location.href='prog.html'" class="akira-button my-2 opacity-0">Deviens un des Nôtres </button>
+        </div>
+        
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+/* Applique un flou léger sur l'image de fond */
+#background {
+    position: fixed; /* Pour que l'image reste en place même lors du scroll */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('assets/programme.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(2px); /* Légère flou sur l'image */
+    z-index: -1; /* Pour que l'image soit derrière tous les autres éléments */
+}
+
+/* Style de la timeline */
+.timeline {
+    position: relative;
+    max-width: 1200px; /* Limite la largeur pour une meilleure lisibilité */
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+/* Ligne verticale de la timeline à gauche */
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 20px; /* Aligne la ligne à gauche de l'écran */
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: rgb(255, 0, 0);
+    transform: translateX(0);
+}
+
+/* Style des points de la timeline */
+.timeline-point {
+    position: relative;
+    margin-bottom: 70px;
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center;
+    width: 100%;
+}
+
+/* Ajouter les points sur la ligne à gauche */
+.timeline-point::after {
+    content: "";
+    position: absolute;
+    left: -7px; /* Aligne les points sur la ligne à gauche */
+    top: 30px; /* Déplace les points de 5px vers le bas */
+    width: 15px;
+    height: 15px;
+    background-color: rgb(255, 0, 0);
+    border-radius: 50%;
+    z-index: 2;
+}
+
+/* Date à gauche de chaque point */
+.timeline-point .date {
+    color : red;
+    position: absolute;
+    left: -120px; /* Décale la date sur la gauche */
+    font-size: 16px;
+    font-weight: bold;
+    text-align: right;
+    width: 100px;
+}
+
+/* Style des blocs transformés en boutons façon Akira */
+.timeline-point .block {
+    margin-left: 40px; /* Décale le contenu sur la droite pour qu'il soit aligné avec le point */
+    background-color: black;
+    color: red;
+    font-family: 'Arial Black', sans-serif;
+    font-size: 1.5rem;
+    padding: 12px 24px;
+    border: 3px solid red;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    z-index: 1; /* Pour s'assurer que le bouton est devant */
+    margin-bottom: 10px; /* Espacement entre les boutons */
+}
+
+/* Comportement des boutons sur hover */
+.timeline-point .block:hover {
+    background-color: red;
+    color: black;
+    transform: scale(1.02);
+    box-shadow: 0 0 10px red;
+}
+
+/* Effet glitch sur hover */
+.timeline-point .block::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(255, 0, 0, 0.6),
+        rgba(255, 0, 0, 0.6) 10px,
+        transparent 10px,
+        transparent 20px
+    );
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.timeline-point .block:hover::before {
+    opacity: 0.4;
+}
+
+/* Titre des blocs (si nécessaire, tu peux aussi le personnaliser) */
+.timeline-point .block h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Paragraphe des blocs (si nécessaire, tu peux aussi le personnaliser) */
+.timeline-point .block .indented-paragraph {
+    font-size: 1rem;
+    margin-left: 20px;
+}

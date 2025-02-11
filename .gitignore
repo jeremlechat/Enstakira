@@ -1,0 +1,21 @@
+# Ignorer les fichiers système MacOS
+.DS_Store
+
+# Ignorer les fichiers temporaires de l'éditeur de texte (Vim, Sublime, VS Code)
+*~ 
+*.swp
+*.swo
+
+# Ignorer les fichiers de log
+*.log
+
+# Ignorer les fichiers de cache des navigateurs
+*.cache
+
+# Ignorer les fichiers générés par les préprocesseurs CSS
+*.css.map
+
+# Ignorer les fichiers de builds temporaires ou de déploiement
+node_modules/
+dist/
+build/

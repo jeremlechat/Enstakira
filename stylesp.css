@@ -1,0 +1,136 @@
+/* Animation de glissement et agrandissement */
+@keyframes slideIn {
+    0% {
+        transform: translateY(100px) scale(0.9); /* Glissement et réduction */
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(-20px) scale(1); /* Position finale avec agrandissement */
+        opacity: 1;
+    }
+}
+
+#background {
+    position: fixed; /* Pour que l'image reste en place même lors du scroll */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('assets/prohback1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(2px); /* Légère flou sur l'image */
+    z-index: -1; /* Pour que l'image soit derrière tous les autres éléments */
+}
+
+
+/* Classe de transition fluide pour les boutons */
+#link-buttons {
+    display: flex;
+    flex-direction: column; /* Empiler les boutons verticalement */
+    justify-content: center; /* Centrer verticalement */
+    align-items: center; /* Centrer horizontalement */
+    height: 100vh; /* Prendre toute la hauteur de l'écran */
+    animation: slideIn 0.6s ease-out forwards;
+    margin-left: 40px; /* Décalage à droite de 20px */
+    margin-bottom: 40px;
+    padding-top: 20%; /* Remontée des boutons */
+}
+
+/* Style des boutons façon Akira */
+.akira-button {
+    background-color: black;
+    color: red;
+    font-family: 'Arial Black', sans-serif;
+    font-size: 1.5rem;
+    padding: 12px 24px;
+    border: 3px solid red;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    z-index: 1; /* Pour s'assurer que le bouton est devant */
+    margin-bottom: 10px; /* Espacement entre les boutons */
+}
+
+/* Comportement des boutons sur hover */
+.akira-button:hover {
+    background-color: red;
+    color: black;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px red;
+}
+
+/* Effet glitch */
+.akira-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(255, 0, 0, 0.6),
+        rgba(255, 0, 0, 0.6) 10px,
+        transparent 10px,
+        transparent 20px
+    );
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.akira-button:hover::before {
+    opacity: 0.4;
+}
+
+/* Adapter la largeur du tableau leaderboard à 1/3 de l'écran et le centrer */
+.leaderboard-container {
+    width: 100%; /* Prendre toute la largeur disponible */
+    max-width: 35%; /* Agrandir légèrement la taille du leaderboard */
+    margin: 0;
+    margin-right: 0; /* Coller à droite */
+    font-size: 1.5rem; /* Agrandir légèrement la taille du classement */
+}
+
+/* Conteneur du leaderboard centré */
+.leaderboard-container .bg-black {
+    border: 4px solid red; /* Ajout de bordure sur le leaderboard */
+    font-family: 'Arial Black', sans-serif; /* Même police que les boutons */
+}
+
+/* Médias Queries pour différents écrans */
+
+/* Sur les écrans plus petits (mobiles, tablettes en mode portrait) */
+@media (max-width: 640px) {
+    .leaderboard-container {
+        max-width: 100%; /* Prendre toute la largeur de l'écran sur mobile */
+    }
+
+    .akira-button {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
+
+    #link-buttons {
+        padding-top: 25%; /* Ajuster les boutons pour être plus centrés */
+    }
+}
+
+/* Sur les écrans moyens et plus grands (tablettes et ordinateurs de bureau) */
+@media (min-width: 641px) {
+    .leaderboard-container {
+        max-width: 35%; /* Agrandir à 35% de la largeur de l'écran sur desktop */
+    }
+
+    #link-buttons {
+        padding-top: 5%; /* Ajuster pour centrer les boutons plus haut */
+    }
+
+    .akira-button {
+        font-size: 1.2rem;
+        padding: 10px 20px;
+    }
+}

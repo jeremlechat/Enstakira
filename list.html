@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photos et Boutons Akira</title>
+    <style>
+        /* Style du corps */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('assets/list.jpg') no-repeat center center/cover;
+        }
+
+        /* Effet de flou sur le fond */
+        .background-blur {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(5px);
+            z-index: -1;
+        }
+
+        /* Container principal */
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        /* Section des images */
+        .images {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        /* Conteneur de l'image et de la description */
+        .person-figure {
+            text-align: center;  /* Centrer la description sous l'image */
+        }
+
+        /* Style des images */
+        .person-photo {
+            width: 150px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* Style de la description */
+        figcaption {
+            font-size: 1rem;
+            font-family: 'Arial Black', sans-serif;
+            letter-spacing: 1px;
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin-top: 8px;
+        }
+
+
+        /* Section des boutons */
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .button-row {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+
+        /* Style des boutons façon Akira */
+        .akira-button {
+            background-color: black;
+            color: red;
+            font-family: 'Arial Black', sans-serif;
+            font-size: 1.5rem;
+            padding: 12px 24px;
+            border: 3px solid red;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease-in-out;
+            position: relative; /* Ajouté pour le positionnement du pseudo-élément */
+        }
+
+        .akira-button:hover {
+            background-color: red;
+            color: black;
+            transform: scale(1.1);
+            box-shadow: 0 0 15px red;
+        }
+
+        /* Effet glitch */
+        .akira-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(255, 0, 0, 0.6),
+                rgba(255, 0, 0, 0.6) 10px,
+                transparent 10px,
+                transparent 20px
+            );
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .akira-button:hover::before {
+            opacity: 0.4;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-blur"></div>
+
+    <div class="container">
+        <!-- Section des images -->
+        <div class="images">
+            <figure class="person-figure">
+                <img src="photo1.jpg" alt="Personne 1" class="person-photo">
+                <figcaption>ANAÏS LOPES</figcaption>
+                <figcaption>VICE-PRÉSIDENTE</figcaption>
+            </figure>
+            <figure class="person-figure">
+                <img src="photo2.jpg" alt="Personne 2" class="person-photo">
+                <figcaption>ARTHUS ROBIN</figcaption>
+                <figcaption>PRÉSIDENT</figcaption>
+            </figure>
+            <figure class="person-figure">
+                <img src="photo3.jpg" alt="Personne 3" class="person-photo">
+                <figcaption>MARTIN DIAZ</figcaption>
+                <figcaption>VICE-PRÉSIDENT</figcaption>
+            </figure>
+        </div>
+        
+
+        <!-- Section des boutons -->
+        <div class="buttons">
+            <div class="button-row">
+                <button onclick="window.location.href='bda.html'" class="akira-button">BDA</button>
+                <button onclick="window.location.href='bee.html'" class="akira-button">BEE</button>
+                <button onclick="window.location.href='com.html'" class="akira-button">COM</button>
+                <button onclick="window.location.href='dd.html'" class="akira-button">DD</button>
+            </div>
+            <div class="button-row">
+                <button onclick="window.location.href='inte.html'" class="akira-button">INTÉ</button>
+                <button onclick="window.location.href='log.html'" class="akira-button">LOG</button>
+                <button onclick="window.location.href='secu.html'" class="akira-button">SÉCU</button>
+                <button onclick="window.location.href='fipa.html'" class="akira-button">FIPA</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

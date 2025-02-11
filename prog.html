@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programme et Activités</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="stylesp.css" rel="stylesheet">
+</head>
+<body class="bg-black text-white">
+    <div id="background" class="w-full h-full bg-cover bg-center bg-no-repeat"></div>
+
+    <div class="flex min-h-screen">
+        <!-- Partie gauche (boutons) -->
+        <div class="w-1/4 flex flex-col justify-center items-center space-y-4" id="link-buttons">
+            <button onclick="window.location.href='programme.html'" class="akira-button">Programme de campagne</button>
+            <button onclick="window.location.href='classement.html'" class="akira-button">Classement</button>
+            <button onclick="window.location.href='jeux.html'" class="akira-button">Jeux</button>
+        </div>
+
+        <!-- Partie droite (Leaderboard) -->
+        <div class="w-2/3 p-6 flex justify-end">
+            <div class="leaderboard-container w-full max-w-md flex justify-center items-center"> <!-- Conteneur centré -->
+                <div class="bg-black p-6 rounded-lg shadow-lg border-4 border-red-600 w-full"> <!-- Bordure ajoutée -->
+                    <h2 class="text-3xl text-center mb-6">Meilleurs Équipes</h2>
+
+                    <!-- Tableau des meilleurs scores -->
+                    <table class="w-full text-center text-sm">
+                        <thead>
+                            <tr>
+                                <th class="py-3 px-4 text-xl text-red-600">Rang</th>
+                                <th class="py-3 px-4 text-xl text-red-600">Nom</th>
+                                <th class="py-3 px-4 text-xl text-red-600">Score</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="leaderboard-row">
+                                <td class="py-2 px-4"></td>
+                                <td class="py-2 px-4"></td>
+                                <td class="py-2 px-4"></td>
+                            </tr>
+                            <tr class="leaderboard-row">
+                                <td class="py-2 px-4"></td>
+                                <td class="py-2 px-4"></td>
+                                <td class="py-2 px-4"></td>
+                            </tr>
+                            <tr class="leaderboard-row">
+                                <td class="py-2 px-4"></td>
+                                <td class="py-2 px-4"></td>
+                                <td class="py-2 px-4"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
