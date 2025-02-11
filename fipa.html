@@ -43,7 +43,6 @@
         background-color: black;
         color: red;
         font-family: 'Arial Black', sans-serif;
-        font-size: 1.5rem;
         padding: 12px 24px;
         border: 3px solid red;
         border-radius: 4px;
@@ -59,6 +58,8 @@
 
         /* Faces de la carte */
         .card .front, .card .back {
+            display: flex;
+            flex-direction: column;
             position: absolute;
             width: 100%;
             height: 100%;
@@ -73,16 +74,14 @@
         /* Face avant */
         .card .front {
             background: black;
-            color: white;
-            font-size: 20px;
+            color: rgb(255, 0, 0);
             font-weight: bold;
         }
 
         /* Face arrière */
         .card .back {
             background: #000000;
-            color: white;
-            font-size: 18px;
+            color: rgb(255, 0, 0);
             transform: rotateX(180deg);
         }
 
@@ -90,6 +89,48 @@
         .card.flipped {
             transform: rotateX(180deg);
         }
+
+        .back ul {
+            width: 90%;
+            text-align: left;  /* Alignement du texte à gauche */
+            padding-left: 20px; /* Ajoute un léger décalage pour conserver les puces */
+        }
+        .back ul li {
+            margin-bottom: 20px; /* Augmente l'espace entre chaque élément */
+        }
+
+                /* Section des images */
+                .images {
+            display: flex;
+            justify-content: center;
+            gap: 10px; /* Réduit l'espacement */
+            max-width: 90%; /* Empêche l'étirement sur toute la largeur */
+            margin-bottom: 30px;
+            flex-wrap: wrap; /* Permet aux images de passer à la ligne si nécessaire */
+        }
+
+        /* Conteneur de l'image et de la description */
+        .person-figure {
+            text-align: center;
+            max-width: 13vw; /* S'assure que chaque figure ne dépasse pas la taille de l'image */
+        }
+
+        /* Style des images */
+        .person-photo {
+            width: 100%; /* L'image prend toute la largeur de son conteneur */
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* Style de la description */
+        figcaption {
+            font-family: 'Arial Black', sans-serif;
+            letter-spacing: 1px;
+            font-size: 0.5rem;
+            color: #ffffff;
+            margin-top: 8px;
+        }
+
     </style>
 </head>
 <body>
@@ -98,8 +139,31 @@
 
     <div class="card-container">
         <div class="card" onclick="this.classList.toggle('flipped')">
-            <div class="front">FIPA</div>
-            <div class="back">Dos FIPA</div>
+            <div class="front">
+                <h1>FIPA</h1>
+                <div class="images">
+                    <figure class="person-figure">
+                        <img src="assets/moi.JPG" alt="Personne 1" class="person-photo">
+                        <figcaption>PIERRE</figcaption>
+                    </figure>
+                    <figure class="person-figure">
+                        <img src="assets/moi.JPG" alt="Personne 2" class="person-photo">
+                        <figcaption>AGATHE</figcaption>
+                    </figure>
+                    <figure class="person-figure">
+                        <img src="assets/moi.JPG" alt="Personne 3" class="person-photo">
+                        <figcaption>LUCAS</figcaption>
+                    </figure>
+                </div>
+            </div>
+        <div class="back">
+            <h2>PROGRAMME FIPA</h2>
+            <ul>
+                <li>Organisation de l'intégration des FIPA 1A sur le modèle actuel.</li>
+                <li>Rencontres entre FIPA et FISE lors de l’intégration.</li>
+                <li>Sensibilisation des FIPA à l’alcool et aux VSS.</li>
+            </ul>
+        </div>
         </div>
     </div>
 
