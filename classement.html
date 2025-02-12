@@ -282,6 +282,20 @@
         .dropdown-content a:hover::before {
             opacity: 0.4;
         }
+
+        .search-bar {
+            width: 80%;
+            font-family: "Arial Black", sans-serif;  /* Modifié ici */
+            padding: 10px;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            border: 3px solid red;
+            border-radius: 4px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: red;
+        }
+
+
         
     </style>
 </head>
@@ -296,10 +310,12 @@
         </div>
     </div>
     <div id="background"></div>
-    <div class="container">    
-    
+    <div class="container">
         <!-- Conteneur principal -->
         <div class="content-container">
+            <!-- Barre de recherche -->
+            <input type="text" id="searchInput" class="search-bar" placeholder="Rechercher une équipe..." onkeyup="filterTeams()" />
+
             <div class="teams-list" id="teamsList"></div>
         </div>
 
@@ -311,28 +327,30 @@
     </div>
 
     <script>
+        let teamsData = []; // Pour stocker les données des équipes
+
         // Fonction pour générer la liste des équipes triée
         function generateTeamsList(labels, dataValues, sortOrder) {
             const teamsList = document.getElementById("teamsList");
             teamsList.innerHTML = ""; // Nettoie la liste
 
-            let teams = labels.map((label, index) => ({
+            teamsData = labels.map((label, index) => ({
                 name: label,
                 points: dataValues[index],
             }));
 
             // Applique le tri en fonction de l'option choisie
             if (sortOrder === 'alphabetical') {
-                teams.sort((a, b) => a.name.localeCompare(b.name));
+                teamsData.sort((a, b) => a.name.localeCompare(b.name));
             } else if (sortOrder === 'desc') {
-                teams.sort((a, b) => b.points - a.points);
+                teamsData.sort((a, b) => b.points - a.points);
             }
 
             // Génération des éléments de la liste triée
-            teams.forEach(team => {
+            teamsData.forEach(team => {
                 const li = document.createElement("li");
                 li.innerHTML = `
-                    <span class="team-name">${team.name}</span>  
+                    <span class="team-name">${team.name}</span>
                     <span class="team-points">${team.points} points</span>`;
                 teamsList.appendChild(li);
             });
@@ -340,7 +358,7 @@
 
         // Fonction pour charger et traiter les données JSON
         fetch('score.json')
-            .then(response => response.json())  
+            .then(response => response.json())
             .then(data => {
                 const labels = data.labels;
                 const dataValues = data.dataValues;
@@ -350,24 +368,33 @@
 
         // Fonction pour changer le mode de tri
         function sortTeams(order) {
-            fetch('score.json')
-                .then(response => response.json())  
-                .then(data => {
-                    const labels = data.labels;
-                    const dataValues = data.dataValues;
-                    generateTeamsList(labels, dataValues, order);
-                })
-                .catch(error => console.error('Erreur lors du chargement des données JSON :', error));
+            generateTeamsList(teamsData.map(team => team.name), teamsData.map(team => team.points), order);
         }
-    </script>
-    <script>
+
+        // Fonction de filtre pour la barre de recherche
+        function filterTeams() {
+            const searchValue = document.getElementById('searchInput').value.toLowerCase();
+            const teamsList = document.getElementById("teamsList");
+            const listItems = teamsList.getElementsByTagName('li');
+
+            // Parcours des éléments de la liste et filtrage par rapport à la recherche
+            Array.from(listItems).forEach(item => {
+                const teamName = item.querySelector('.team-name').textContent.toLowerCase();
+                if (teamName.includes(searchValue)) {
+                    item.style.display = ''; // Affiche l'élément
+                    item.scrollIntoView({ behavior: 'smooth', block: 'center' }); // Défile l'élément dans la vue
+                } else {
+                    item.style.display = 'none'; // Cache l'élément
+                    item.style.backgroundColor = ''; // Enlève le surlignage
+                }
+            });
+        }
+
         // Fonction pour basculer l'affichage du menu au clic
         function toggleMenu() {
             const menu = document.querySelector('.dropdown-content');
-            // Bascule l'état d'affichage entre none et block
             menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
         }
     </script>
-
 </body>
 </html>
