@@ -131,12 +131,93 @@
             margin-top: 8px;
         }
 
+        /* Style général du menu */
+        .dropdown {
+            position: fixed; /* Fixe le menu en haut à droite */
+            top: 10px; /* Décalage depuis le haut */
+            right: 10px; /* Décalage depuis la droite */
+            z-index: 1000; /* Assure que le menu reste au-dessus du contenu */
+        }
+
+        /* Style du bouton du menu */
+        .dropdown-button {
+            background-color: black;
+            color: red;
+            font-family: 'Arial Black', sans-serif;
+            font-size: 1rem;  /* Ajuste la taille de police pour éviter le débordement */
+            padding: 10px 20px;
+            border: 3px solid red;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            z-index: 1;
+            width: auto;  /* Ajuste la largeur en fonction du contenu */
+            white-space: nowrap;  /* Empêche le texte de se couper */
+        }
+
+        /* Comportement du bouton au survol */
+        .dropdown-button:hover {
+            background-color: red;
+            color: black;
+            transform: scale(1.1);
+            box-shadow: 0 0 15px red;
+        }
+
+        /* Style du menu déroulant */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: black;
+            min-width: 100px; /* Fixe une largeur minimale */
+            z-index: 1;
+            border-radius: 4px;
+            margin-top: 5px;
+            border: 3px solid red;
+            width: auto;  /* Le menu s'adapte à la taille du contenu */
+            padding: 0; /* Enlève tout remplissage pour ajuster les éléments */
+            text-align: center;
+        }
+
+        /* Style des liens du menu */
+        .dropdown-content a {
+            color: red;
+            padding: 10px 10px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.6rem;
+            font-family: 'Arial Black', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease-in-out;
+            white-space: nowrap;  /* Empêche le texte de se couper */
+        }
+
+        /* Comportement des liens au survol */
+        .dropdown-content a:hover {
+            background-color: red;
+            color: black;
+            transform: scale(1.1);
+            box-shadow: 0 0 15px red;
+        }
+
     </style>
 </head>
 <body>
 
     <div class="background-blur"></div>
-
+    <div class="background-blur"></div>
+    <div class="dropdown">
+        <button class="dropdown-button" onclick="toggleMenu()">Menu</button>
+        <div class="dropdown-content">
+            <a href="index.html">ACCEUIL</a>
+            <a href="programme.html">PROGRAMME</a>
+            <a href="classement.html">CLASSEMENT</a>
+            <a href="classement.html">CLASSEMENT</a>
+        </div>
+    </div>
     <div class="card-container">
         <div class="card" onclick="this.classList.toggle('flipped')">
             <div class="front">
@@ -144,15 +225,11 @@
                 <div class="images">
                     <figure class="person-figure">
                         <img src="assets/moi.JPG" alt="Personne 1" class="person-photo">
-                        <figcaption>PIERRE</figcaption>
+                        <figcaption>GABRIEL</figcaption>
                     </figure>
                     <figure class="person-figure">
                         <img src="assets/moi.JPG" alt="Personne 2" class="person-photo">
-                        <figcaption>AGATHE</figcaption>
-                    </figure>
-                    <figure class="person-figure">
-                        <img src="assets/moi.JPG" alt="Personne 3" class="person-photo">
-                        <figcaption>LUCAS</figcaption>
+                        <figcaption>HADRIEN</figcaption>
                     </figure>
                 </div>
             </div>
@@ -164,6 +241,16 @@
                 <li>Sensibilisation des FIPA à l’alcool et aux VSS.</li>
             </ul>
         </div>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <button class="dropdown-button" onclick="toggleMenu()">Menu</button>
+        <div class="dropdown-content">
+            <a href="index.html">ACCEUIL</a>
+            <a href="programme.html">PROGRAMME</a>
+            <a href="classement.html">CLASSEMENT</a>
+            <a href="list.html">NOTRE LISTE</a>
         </div>
     </div>
 

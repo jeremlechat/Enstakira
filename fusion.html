@@ -132,14 +132,13 @@
             width: 90%;
             text-align: left;  /* Alignement du texte à gauche */
             padding-left: 20px; /* Ajoute un léger décalage pour conserver les puces */
-            margin-bottom: 30px;
         }
         .back ul li {
             margin-bottom: 20px; /* Augmente l'espace entre chaque élément */
         }
 
-                /* Style général du menu */
-                .dropdown {
+        /* Style général du menu */
+        .dropdown {
             position: fixed; /* Fixe le menu en haut à droite */
             top: 10px; /* Décalage depuis le haut */
             right: 10px; /* Décalage depuis la droite */
@@ -209,13 +208,6 @@
             transform: scale(1.1);
             box-shadow: 0 0 15px red;
         }
-
-        .title {
-            transform: scale(0.7); /* Réduction à 80% */
-            margin: auto; /* Centre l'image si nécessaire */
-        }
-
-
     </style>
 </head>
 <body>
@@ -233,41 +225,29 @@
     <div class="card-container">
         <div class="card" onclick="this.classList.toggle('flipped')">
             <div class="front">
-                <h1>BUREAU</h1>
+                <h1>FUSION</h1>
                 <div class="images">
                     <figure class="person-figure">
                         <img src="assets/moi.JPG" alt="Personne 1" class="person-photo">
-                        <figcaption>ANAÏS</figcaption>
-                    </figure>
-                    <figure class="person-figure">
-                        <img src="assets/moi.JPG" alt="Personne 2" class="person-photo">
-                        <figcaption>ARTHUS</figcaption>
-                    </figure>
-                    <figure class="person-figure">
-                        <img src="assets/moi.JPG" alt="Personne 3" class="person-photo">
                         <figcaption>MARTIN</figcaption>
                     </figure>
                     <figure class="person-figure">
-                        <img src="assets/moi.JPG" alt="Personne 3" class="person-photo">
-                        <figcaption>THOMAS</figcaption>
+                        <img src="assets/moi.JPG" alt="Personne 2" class="person-photo">
+                        <figcaption>SIMON</figcaption>
                     </figure>
                     <figure class="person-figure">
                         <img src="assets/moi.JPG" alt="Personne 3" class="person-photo">
-                        <figcaption>LILA</figcaption>
+                        <figcaption>LUCAS</figcaption>
                     </figure>
                 </div>
             </div>
             <div class="back">
-                    <img src="assets/title.png" width="80%" alt="Personne 3" class="title">
-                <ul>
-                    <li>RÈGLE NUMÉRO 1 : IL EST INTERDIT DE PARLER DE LA LISTE</li>
-                    <li>RÈGLE NUMÉRO 2 : IL EST INTERDIT DE PARLER DU THÉME</li>
-                    <li>RÈGLE NUMÉRO 3 : IL EST INTERDIT DE PARLER DU FIGHT CLUB</li>
-                    <li>    ...    </li>
-                    <li>RÈGLE NUMÉRO 4 : L'ALCOOL JAMAIS AUTREMENT QU'EN EXCÉS</li>
-                    <li>    ...    </li>
-                </ul>
-
+                <h2>PROGRAMME FUSION</h2>
+                    <ul>
+                        <li>Jumelage des élèves 1A de Brest avec ceux de Paris.</li>
+                        <li>Organisation d'événements inter-campus (WEI, tournois sportifs, etc.).</li>
+                        <li>Poursuite des réflexions sur la Fédération.</li>
+                    </ul>
             </div>
         </div>
     </div>
@@ -279,7 +259,5 @@
             menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
         }
     </script>
-    
-
 </body>
 </html>
