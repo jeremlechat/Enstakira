@@ -17,7 +17,7 @@
 
 @keyframes titleAppear {
     0% {
-        transform: translateY(-50px) scale(0.8); /* Départ plus haut */
+        transform: translateY(-30px) scale(0.8); /* Départ plus haut */
         opacity: 0;
     }
     100% {
@@ -79,51 +79,106 @@
     opacity: 0.4;
 }
 
-/* Médias Queries pour différents écrans */
 
-/* Sur les écrans plus petits (mobiles, tablettes en mode portrait) */
+/* Téléphones verticaux */
 @media (max-width: 640px) {
     #container {
-        height: 100vh; /* Prendre toute la hauteur de l'écran */
-        justify-content: center; /* Centrer verticalement */
-    }
+        height: 100vh; 
+        justify-content: center;
+    }   
 
     #shiny-image {
-        max-width: 80%; /* Largeur maximale ajustée */
-        font-size: 6vw; /* Taille du titre flexible */
-        margin-top: 0; /* Aucune marge en haut */
-        margin-bottom: 0; /* Pas de marge en bas */
+        height: 50vh;
+        width: auto;
+        max-height: 50vh;
     }
 
     #link-buttons {
         flex-direction: column;
-        bottom: 5%;
+        bottom: 10%;
+    }
+
+    .akira-button {
+        font-size: 0.8rem;
+        padding: 8px 16px;
+        font-family: 'Arial Black', sans-serif;
+    }
+}
+
+/* Téléphones horizontaux et tablettes */
+@media (min-width: 641px) and (max-width: 1024px) {
+    #container {
+        height: 100vh;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    #shiny-image {
+        height: 50vh;
+        width: auto;
+        max-height: 70vh;
+    }
+
+    #link-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1px;
+        margin-bottom: 0.2vh; /* Ajuste selon ton besoin */
+
     }
 
     .akira-button {
         font-size: 1rem;
-        padding: 8px 16px;
+        padding: 12px 24px;
+        font-family: 'Arial Black', sans-serif;
     }
 }
 
-/* Sur les écrans moyens et plus grands (tablettes et ordinateurs de bureau) */
-@media (min-width: 641px) {
+/* Ordinateurs */
+@media (min-width: 1025px) {
     #container {
-        height: auto; /* Le conteneur prend la hauteur de son contenu */
-        justify-content: center; /* Centrer verticalement */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 20px;
     }
 
     #shiny-image {
-        font-size: 3vw; /* Taille du titre plus petite */
-        max-width: 70%;
+        height: 75vh; /* Ajuste la hauteur */
+        width: auto;  /* Garde le ratio d'origine */
+        max-width: 100%; /* Empêche l'image de dépasser sa taille naturelle */
+        object-fit: contain; /* S'assure que l'image garde ses proportions */
     }
+    
 
     #link-buttons {
+        display: flex;
         flex-direction: row;
     }
 
     .akira-button {
         font-size: 1.2rem;
         padding: 10px 20px;
+        font-family: 'Arial Black', sans-serif;
     }
 }
+
+/* Effet tactile différent */
+@media (hover: none) {
+    .akira-button {
+        transition: all 0.2s ease-in-out;
+    }
+
+    .akira-button:active {
+        background-color: red;
+        color: black;
+        transform: scale(1.05);
+        box-shadow: 0 0 10px red;
+    }
+}
+

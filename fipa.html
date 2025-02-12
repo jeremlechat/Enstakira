@@ -302,10 +302,10 @@
     <div class="dropdown">
         <button class="dropdown-button" onclick="toggleMenu()">Menu</button>
         <div class="dropdown-content">
-            <a href="index.html">ACCEUIL</a>
+            <a href="index.html">ACCUEIL</a>
             <a href="programme.html">PROGRAMME</a>
             <a href="classement.html">CLASSEMENT</a>
-            <a href="classement.html">CLASSEMENT</a>
+            <a href="list.html">NOTRE LISTE</a>
         </div>
     </div>
     <div class="card-container">
@@ -333,16 +333,13 @@
         </div>
         </div>
     </div>
-
-    <div class="dropdown">
-        <button class="dropdown-button" onclick="toggleMenu()">Menu</button>
-        <div class="dropdown-content">
-            <a href="index.html">ACCEUIL</a>
-            <a href="programme.html">PROGRAMME</a>
-            <a href="classement.html">CLASSEMENT</a>
-            <a href="list.html">NOTRE LISTE</a>
-        </div>
-    </div>
-
+    <script>
+        // Fonction pour basculer l'affichage du menu au clic
+        function toggleMenu() {
+            const menu = document.querySelector('.dropdown-content');
+            // Bascule l'état d'affichage entre none et block
+            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+        }
+    </script>
 </body>
 </html>
