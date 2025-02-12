@@ -5,7 +5,7 @@
         opacity: 0;
     }
     100% {
-        transform: translateY(-20px) scale(1); /* Position finale avec agrandissement */
+        transform: translateY(10px) scale(1); /* Position finale avec agrandissement */
         opacity: 1;
     }
 }
@@ -28,7 +28,7 @@
 
 
 .glowing-image {
-    filter: drop-shadow(0 0 15px rgb(255, 0, 0));
+    filter: drop-shadow(0 0 150px rgb(255, 0, 0));
 }
 
 .image-appear {

@@ -68,6 +68,40 @@
 }
 
 /* Style des blocs transformés en boutons façon Akira */
+.timeline-point .block-rules {
+    margin-left: 40px; /* Décale le contenu sur la droite pour qu'il soit aligné avec le point */
+    background-color: black;
+    color: rgb(170, 164, 164);
+    font-family: 'Arial Black', sans-serif;
+    font-size: 1.1rem;
+    padding: 12px 24px;
+    border: 3px solid red;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    z-index: 1; /* Pour s'assurer que le bouton est devant */
+    margin-bottom: 10px; /* Espacement entre les boutons */
+}
+
+.alineas {
+    margin-left: 20px; /* Ajuste cette valeur selon le besoin */
+}
+
+ul {
+    list-style-type: disc; /* Définit les puces comme des cercles */
+    margin-left: 20px; /* Décale légèrement la liste vers la droite */
+    padding-left: 20px; /* Espace entre les puces et le texte */
+}
+
+/* Optionnel : personnalisation des puces (si tu veux changer le style) */
+ul li {
+    font-size: 1rem; /* Ajuste la taille de la police */
+    margin-bottom: 5px; /* Espacement entre les éléments de la liste */
+}
+
+/* Style des blocs transformés en boutons façon Akira */
 .timeline-point .block {
     margin-left: 40px; /* Décale le contenu sur la droite pour qu'il soit aligné avec le point */
     background-color: black;
@@ -129,8 +163,8 @@
     margin-left: 20px;
 }
 
-         /* Style général du menu */
-         .dropdown {
+        /* Style général du menu */
+        .dropdown {
             position: fixed; /* Fixe le menu en haut à droite */
             top: 10px; /* Décalage depuis le haut */
             right: 10px; /* Décalage depuis la droite */
@@ -142,7 +176,7 @@
             background-color: black;
             color: red;
             font-family: 'Arial Black', sans-serif;
-            font-size: 1rem;  /* Ajuste la taille de police pour éviter le débordement */
+            font-size: 1rem;
             padding: 10px 20px;
             border: 3px solid red;
             border-radius: 4px;
@@ -152,8 +186,8 @@
             transition: all 0.3s ease-in-out;
             position: relative;
             z-index: 1;
-            width: auto;  /* Ajuste la largeur en fonction du contenu */
-            white-space: nowrap;  /* Empêche le texte de se couper */
+            width: auto;
+            white-space: nowrap; /* Empêche le texte de se couper */
         }
 
         /* Comportement du bouton au survol */
@@ -162,6 +196,30 @@
             color: black;
             transform: scale(1.1);
             box-shadow: 0 0 15px red;
+        }
+
+        /* Effet glitch sur le bouton */
+        .dropdown-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(255, 0, 0, 0.6),
+                rgba(255, 0, 0, 0.6) 10px,
+                transparent 10px,
+                transparent 20px
+            );
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        /* Lorsque l'on survole le bouton du menu, l'effet glitch devient visible */
+        .dropdown-button:hover::before {
+            opacity: 0.4;
         }
 
         /* Style du menu déroulant */
@@ -174,7 +232,7 @@
             border-radius: 4px;
             margin-top: 5px;
             border: 3px solid red;
-            width: auto;  /* Le menu s'adapte à la taille du contenu */
+            width: auto;
             padding: 0; /* Enlève tout remplissage pour ajuster les éléments */
             text-align: center;
         }
@@ -190,7 +248,8 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: all 0.3s ease-in-out;
-            white-space: nowrap;  /* Empêche le texte de se couper */
+            white-space: nowrap;
+            position: relative; /* Nécessaire pour l'effet ::before */
         }
 
         /* Comportement des liens au survol */
@@ -199,4 +258,28 @@
             color: black;
             transform: scale(1.1);
             box-shadow: 0 0 15px red;
+        }
+
+        /* Effet glitch sur les liens du menu */
+        .dropdown-content a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(255, 0, 0, 0.6),
+                rgba(255, 0, 0, 0.6) 10px,
+                transparent 10px,
+                transparent 20px
+            );
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        /* Lorsque l'on survole les liens du menu, l'effet glitch devient visible */
+        .dropdown-content a:hover::before {
+            opacity: 0.4;
         }

@@ -1,6 +1,6 @@
 # ENST'AKIRA - Site du BDE
 
-Bienvenue sur le site officiel de **ENST'AKIRA**, le Bureau des Élèves (BDE) de l'ENSTA Bretagne !
+Bienvenue sur le site officiel de **ENST'AKIRA**, liste au poste de Bureau des Élèves de l'ENSTA Bretagne !
 
 ## Auteurs
 
