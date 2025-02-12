@@ -258,9 +258,50 @@
             opacity: 0.4;
         }
 
+                /* Style du bouton Instagram */
+                .instagram-button {
+            position: fixed;
+            top: 10px;
+            right: 135px;
+            z-index: 1000;
+            background-color: black;
+            padding: 8px;
+            border: 3px solid red;
+            border-radius: 50%;
+            transition: all 0.3s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+        }
+
+        /* Icône Instagram */
+        .instagram-icon {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Effet hover */
+        .instagram-button:hover {
+            background-color: red;
+            box-shadow: 0 0 15px red;
+            transform: scale(1.1);
+        }
+
+        .instagram-button:hover .instagram-icon {
+            filter: invert(0%);
+            transform: rotate(10deg);
+        }
+
+
     </style>
 </head>
 <body>
+    <a href="https://www.instagram.com/ensta4pattes?igsh=c2Zwa3NkMGtuamhh&utm_source=qr" target="_blank" class="instagram-button">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="instagram-icon">
+    </a>
 
     <div class="background-blur"></div>
     <div class="dropdown">
