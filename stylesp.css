@@ -265,9 +265,17 @@
 /* Sur les écrans très petits (smartphones en mode portrait) */
 @media (max-width: 640px) {
     #background {
-        background-size: cover; /* Couvre l'écran entier */
-        background-position: center center; /* Centre l'image */
-        background-attachment: fixed; /* Fixe l'image en arrière-plan */
+        background-image: 
+            linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 70%), /* Dégradé du bas vers le haut */
+            linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 70%), /* Dégradé du haut vers le bas */
+            url('assets/prohback1.jpeg'); /* L'image de fond */
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
     }
     html, body {
         overflow: hidden; /* Empêche le scroll */
@@ -361,12 +369,23 @@
 /* Sur les smartphones en mode paysage et tablettes en mode portrait */
 @media (min-width: 641px) and (max-width: 1024px) {
     #background {
-        background-size: cover; /* Couvre l'écran entier */
-        background-position: center center; /* Centre l'image */
-        background-attachment: fixed; /* Fixe l'image en arrière-plan */
+        background-image: 
+            linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 50%), /* Dégradé du bas vers le haut */
+            linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0) 50%), /* Dégradé du haut vers le bas */
+            url('assets/prohback1.jpeg'); /* L'image de fond */
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
     }
+    
+    
+    
+    
     html, body {
-        overflow: hidden; /* Empêche le scroll */
         height: 100vh; /* Force à remplir la hauteur de l'écran */
     }
     #container{
@@ -387,10 +406,27 @@
 
     .leaderboard-container {
         position: relative;
-        top: -70px;
+        top: -105px;
         max-width: 80%; /* Prendre plus de place, mais moins qu'en mode portrait */
         font-family: 'Montserrat', sans-serif;
         font-weight: 1000;
+    }
+
+    .leaderboard-container .bg-black {
+        font-family: 'Montserrat', sans-serif; /* Change la police pour les téléphones */
+    }
+
+    .leaderboard-container h2 {
+        font-size: 1.5rem; /* Réduire la taille du titre */
+    }
+
+    .leaderboard-container table {
+        font-size: 0.7rem; /* Réduire la taille du texte du tableau */
+    }
+
+    .leaderboard-container th {
+        font-size: 0.9rem; /* Ajuster la taille de la police */
+        gap: 70px;
     }
 
     .dropdown-button {
