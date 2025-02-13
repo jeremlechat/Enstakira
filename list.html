@@ -298,6 +298,10 @@
 
         /* Sur les écrans très petits (smartphones en mode portrait) */
         @media (max-width: 640px) {
+            html, body {
+        overflow: hidden; /* Empêche le scroll */
+        height: 100vh; /* Force à remplir la hauteur de l'écran */
+    }
 
                         .images {
                 display: flex;
@@ -386,6 +390,10 @@
 
         /* Sur les smartphones en mode paysage et tablettes en mode portrait */
         @media (min-width: 641px) and (max-width: 1024px) {
+            html, body {
+        overflow: hidden; /* Empêche le scroll */
+        height: 100vh; /* Force à remplir la hauteur de l'écran */
+    }
 
             .images img {
             position: relative;
