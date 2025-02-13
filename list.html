@@ -295,6 +295,180 @@
             transform: rotate(10deg);
         }
 
+
+        /* Sur les écrans très petits (smartphones en mode portrait) */
+        @media (max-width: 640px) {
+
+                        .images {
+                display: flex;
+                justify-content: center; /* Centrer les éléments horizontalement */
+                gap: 5vw; /* Espacement uniforme entre les figures */
+                flex-wrap: wrap; /* Permettre le retour à la ligne si besoin */
+            }
+
+            .person-figure {
+                text-align: center;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: column; /* Image au-dessus du texte */
+                align-items: center; /* Centrer le contenu */
+            }
+
+            .person-photo {
+                width: 20vw;
+                height: 30vw;
+                object-fit: cover; /* Assurer une bonne proportion de l'image */
+            }
+
+            figcaption, .figcaption2 {
+                margin-top: 5px; /* Éviter le collage avec l'image */
+                font-size: 1rem;
+                font-weight: bold;
+            }
+
+
+
+            figcaption {
+            font-size: 0.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 1000;
+            letter-spacing: 1px;
+            color: #ffffff;
+            margin-top: 8px;
+            }
+
+            .figcaption2 {
+            font-size: 0.8rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 1000;
+            letter-spacing: 1px;
+            color: #000000;
+            margin-top: 8px;
+            }
+
+
+            .akira-button {
+                font-size: 0.8rem;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 1000;
+                letter-spacing: 1px;
+
+            }  
+            .button-row {
+                gap:1px;
+                margin-bottom: 4px;
+
+            }  
+            
+            
+
+            /* Style des liens du menu */
+            .dropdown-content a {
+                font-size: 0.6rem;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 1000;
+                padding: 7px 7px;
+            }
+            .dropdown-button {
+                font-size: 1rem;
+                padding: 8px 16px;
+            }
+
+            /* Style du bouton Instagram */
+            .instagram-button {
+                right: 120px;
+                width: 25px;
+                height: 25px;
+            }
+        }
+
+
+        /* Sur les smartphones en mode paysage et tablettes en mode portrait */
+        @media (min-width: 641px) and (max-width: 1024px) {
+
+            .images img {
+            position: relative;
+            top: 20px;
+            left: 11px;
+            margin: 0;
+            padding: 0;
+            display: block;
+            max-width: 100%;
+            justify-content: center;
+            margin-bottom: 30px;
+            }
+
+             /* Conteneur de l'image et de la description */
+            .person-figure {
+                text-align: center;  /* Centrer la description sous l'image */
+                margin: 0;
+                padding: 0;
+            }
+
+
+            .person-photo {
+            width: 13vw;
+            height: 16vw;
+            object-fit: cover;
+            border-radius: 10px;
+            }
+
+            figcaption {
+            position: relative;
+            left: 10px;
+            font-size: 0.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 1000;
+            letter-spacing: 2px;
+            color: #ffffff;
+            margin-top: 8px;
+            }
+
+            .figcaption2 {
+            font-size: 0.8rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 1000;
+            letter-spacing: 1px;
+            color: #000000;
+            margin-top: 8px;
+            }
+
+            .akira-button {
+                font-size: 0.9rem;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 1000;
+                padding: 10px 24px;
+
+            }  
+            .button-row {
+                gap:2px;
+                margin-bottom: 2px;
+            }  
+
+
+
+            /* Style des liens du menu */
+            .dropdown-content a {
+                font-size: 0.6rem;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 1000;
+                padding: 7px 7px;
+            }
+            .dropdown-button {
+                font-size: 1rem;
+                padding: 8px 16px;
+            }
+
+            /* Style du bouton Instagram */
+            .instagram-button {
+                right: 120px;
+                width: 25px;
+                height: 25px;
+            }
+        }
+
+
     </style>
 </head>
 <body>

@@ -13,7 +13,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: url('assets/we.jpeg') no-repeat center center/cover;
+            background: url('assets/we.jpg') no-repeat center center/cover;
         }
 
         /* Effet de flou sur le fond */
@@ -237,6 +237,85 @@
             filter: invert(0%);
             transform: rotate(10deg);
         }
+
+
+        /* Sur les écrans très petits (smartphones en mode portrait) */
+        @media (max-width: 640px) {
+
+
+        .card .front, .card .back {
+            font-size: 0.6rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 1000;
+            letter-spacing: 1px;
+        }
+
+        .back h1 {
+            font-size: 1.3rem;
+        }
+        .front h1 {
+            font-size: 1.3rem;
+        }
+
+        /* Style des liens du menu */
+        .dropdown-content a {
+        font-size: 0.6rem;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 1000;
+        padding: 7px 7px;
+        }
+        .dropdown-button {
+        font-size: 1rem;
+        padding: 8px 16px;
+        }
+
+        /* Style du bouton Instagram */
+        .instagram-button {
+        right: 120px;
+        width: 25px;
+        height: 25px;
+        }
+        }
+
+
+        /* Sur les smartphones en mode paysage et tablettes en mode portrait */
+        @media (min-width: 641px) and (max-width: 1024px) {
+
+
+        .card .front, .card .back {
+            font-size: 0.6rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 1000;
+            letter-spacing: 1px;
+        }
+
+        .back h1 {
+            font-size: 1.3rem;
+        }
+        .front h1 {
+            font-size: 1.3rem;
+        }
+
+        /* Style des liens du menu */
+        .dropdown-content a {
+        font-size: 0.6rem;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 1000;
+        padding: 7px 7px;
+        }
+        .dropdown-button {
+        font-size: 1rem;
+        padding: 8px 16px;
+        }
+
+        /* Style du bouton Instagram */
+        .instagram-button {
+        right: 120px;
+        width: 25px;
+        height: 25px;
+        }
+        }
+
 
 
     </style>

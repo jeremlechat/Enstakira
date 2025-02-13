@@ -351,6 +351,8 @@ ul li {
         font-size: 0.6rem;
         font-family: 'Montserrat', sans-serif;
         font-weight: 1000;
+        letter-spacing: 1px;
+
     }
 
     ul li {
@@ -363,7 +365,9 @@ ul li {
     .timeline-point .block {
         font-size:0.7rem;
         font-family: 'Montserrat', sans-serif;
-        font-weight: 1000;    
+        font-weight: 1000;  
+        letter-spacing: 1px;
+  
 
     }
     /* Style des liens du menu */
@@ -415,6 +419,8 @@ ul li {
         font-size: 0.6rem;
         font-family: 'Montserrat', sans-serif;
         font-weight: 1000;
+        letter-spacing: 1px;
+
     }
 
     ul li {
@@ -427,7 +433,9 @@ ul li {
     .timeline-point .block {
         font-size:0.7rem;
         font-family: 'Montserrat', sans-serif;
-        font-weight: 1000;    
+        font-weight: 1000; 
+        letter-spacing: 1px;
+   
 
     }
 
