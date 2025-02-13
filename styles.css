@@ -114,6 +114,8 @@
         height: 50vh;
         width: auto;
         max-height: 50vh;
+        margin-top: -60px; /* Augmenter la valeur pour remonter le logo */
+        position: relative; /* Utiliser position relative pour jouer sur le margin-top */
     }
 
     #link-buttons {
@@ -145,17 +147,6 @@
     .image-appear {
         animation: titleAppear 0.5s ease-out forwards; /* Animation d'origine */
     }
-
-    @keyframes titleAppear {
-        0% {
-            transform: translateY(20px) scale(0.8); /* Départ plus haut */
-            opacity: 0;
-        }
-        100% {
-            transform: translateY(-70px) scale(0.9); /* Arrivée plus haut */
-            opacity: 1;
-        }
-    }
     
     #container {
         height: 100vh;
@@ -167,11 +158,13 @@
     }
 
     #shiny-image {
+        position: relative;
         height: auto;
-        margin-top: 10px;
-        width: 65vw; /* Ajuste la largeur du logo (25% de la largeur de l'écran) */
-        object-fit: contain; /* Garde les proportions de l'image */
+        margin-top: -50px; /* Augmenter la valeur pour remonter le logo */
+        width: 65vw;
+        object-fit: contain;
     }
+
 
     #link-buttons {
         display: flex;
@@ -182,7 +175,7 @@
         opacity: 1; /* Assurer que les boutons sont visibles */
         position: absolute;
         bottom: 10%; /* Rapproche les boutons du bas de l'écran */
-        left: 50%; /* Centre horizontalement */
+        left: 45%; /* Centre horizontalement */
         transform: translateX(-50%); /* Décale de 50% de sa propre largeur pour un centrage parfait */
         width: auto; /* La largeur s'adapte automatiquement au contenu */
     }
@@ -191,7 +184,7 @@
         font-size: 0.7rem;
         padding: 12px 24px;
         font-family: 'Montserrat', sans-serif;
-        font-weight: bold;
+        font-weight: 800;
         white-space: nowrap; /* Empêche le texte de se répartir sur plusieurs lignes */
     }
     #background {
