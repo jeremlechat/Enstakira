@@ -24,17 +24,15 @@
     z-index: -1; /* Pour que l'image soit derrière tous les autres éléments */
 }
 
-
 /* Classe de transition fluide pour les boutons */
 #link-buttons {
     display: flex;
     flex-direction: column; /* Empiler les boutons verticalement */
     justify-content: center; /* Centrer verticalement */
     align-items: center; /* Centrer horizontalement */
-    height: 100vh; /* Prendre toute la hauteur de l'écran */
     animation: slideIn 0.6s ease-out forwards;
     margin-left: 40px; /* Décalage à droite de 20px */
-    margin-bottom: 40px;
+    margin-bottom: 240px;
     padding-top: 20%; /* Remontée des boutons */
 }
 
@@ -43,7 +41,7 @@
     background-color: black;
     color: red;
     font-family: 'Arial Black', sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     padding: 12px 24px;
     border: 3px solid red;
     border-radius: 4px;
@@ -101,195 +99,276 @@
     font-family: 'Arial Black', sans-serif; /* Même police que les boutons */
 }
 
-/* Médias Queries pour différents écrans */
 
-/* Sur les écrans plus petits (mobiles, tablettes en mode portrait) */
+
+/* Style général du menu */
+.dropdown {
+    position: fixed; /* Fixe le menu en haut à droite */
+    top: 10px; /* Décalage depuis le haut */
+    right: 10px; /* Décalage depuis la droite */
+    z-index: 1000; /* Assure que le menu reste au-dessus du contenu */
+}
+
+/* Style du bouton du menu */
+.dropdown-button {
+    background-color: black;
+    color: red;
+    font-family: 'Arial Black', sans-serif;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: 3px solid red;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    z-index: 1;
+    width: auto;
+    white-space: nowrap; /* Empêche le texte de se couper */
+}
+
+/* Comportement du bouton au survol */
+.dropdown-button:hover {
+    background-color: red;
+    color: black;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px red;
+}
+
+/* Effet glitch sur le bouton */
+.dropdown-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(255, 0, 0, 0.6),
+        rgba(255, 0, 0, 0.6) 10px,
+        transparent 10px,
+        transparent 20px
+    );
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+/* Lorsque l'on survole le bouton du menu, l'effet glitch devient visible */
+.dropdown-button:hover::before {
+    opacity: 0.4;
+}
+
+/* Style du menu déroulant */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: black;
+    min-width: 100px; /* Fixe une largeur minimale */
+    z-index: 1;
+    border-radius: 4px;
+    margin-top: 5px;
+    border: 3px solid red;
+    width: auto;
+    padding: 0; /* Enlève tout remplissage pour ajuster les éléments */
+    text-align: center;
+}
+
+/* Style des liens du menu */
+.dropdown-content a {
+    color: red;
+    padding: 10px 10px;
+    text-decoration: none;
+    display: block;
+    font-size: 0.6rem;
+    font-family: 'Arial Black', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease-in-out;
+    white-space: nowrap;
+    position: relative; /* Nécessaire pour l'effet ::before */
+}
+
+/* Comportement des liens au survol */
+.dropdown-content a:hover {
+    background-color: red;
+    color: black;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px red;
+}
+
+/* Effet glitch sur les liens du menu */
+.dropdown-content a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(255, 0, 0, 0.6),
+        rgba(255, 0, 0, 0.6) 10px,
+        transparent 10px,
+        transparent 20px
+    );
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+/* Lorsque l'on survole les liens du menu, l'effet glitch devient visible */
+.dropdown-content a:hover::before {
+    opacity: 0.4;
+}
+
+
+/* Style du bouton Instagram */
+.instagram-button {
+    position: fixed;
+    top: 10px;
+    right: 135px;
+    z-index: 1000;
+    background-color: black;
+    padding: 8px;
+    border: 3px solid red;
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+}
+
+/* Icône Instagram */
+.instagram-icon {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Effet hover */
+.instagram-button:hover {
+    background-color: red;
+    box-shadow: 0 0 15px red;
+    transform: scale(1.1);
+}
+
+.instagram-button:hover .instagram-icon {
+    filter: invert(0%);
+    transform: rotate(10deg);
+}
+
+
+
+/* Sur les écrans très petits (smartphones en mode portrait) */
 @media (max-width: 640px) {
-    .leaderboard-container {
-        max-width: 100%; /* Prendre toute la largeur de l'écran sur mobile */
+    #container{
+        display: flex;
+        flex-direction: column; /* Empiler les boutons verticalement */
+        justify-content: center; /* Centrer verticalement */
+        align-items: center; /* Centrer horizontalement */    
+    }
+    
+    #link-buttons {
+        padding-top: 30%; /* Plus de marges en haut pour mieux centrer */
+        margin-left: 0;
     }
 
     .akira-button {
-        font-size: 1rem;
+        font-size: 0.8rem;
+        padding: 10px 20px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 1000;
+    }
+
+    .leaderboard-container {
+        min-width: 150%; 
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 1000;   
+    }
+
+    .dropdown-button {
+        font-size: 0.9rem;
         padding: 8px 16px;
     }
 
-    #link-buttons {
-        padding-top: 25%; /* Ajuster les boutons pour être plus centrés */
+    .dropdown-content a {
+        font-size: 0.8rem;
+        padding: 8px;
     }
+
+    #background {
+        background-position: 25% center;
+        background-size: cover; /* Remplit tout l'écran */
+        filter: blur(1px); /* Flou sur mobile */
+    }
+
+    /* Style des liens du menu */
+    .dropdown-content a {
+        font-size: 0.5rem;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 1000;
+        padding: 7px 7px;
+    }
+
+    /* Style du bouton Instagram */
+    .instagram-button {
+        right: 120px;
+        width: 47px;
+        height: 47px;
+    }
+
+
 }
 
-/* Sur les écrans moyens et plus grands (tablettes et ordinateurs de bureau) */
-@media (min-width: 641px) {
-    .leaderboard-container {
-        max-width: 35%; /* Agrandir à 35% de la largeur de l'écran sur desktop */
+/* Sur les smartphones en mode paysage et tablettes en mode portrait */
+@media (min-width: 641px) and (max-width: 1024px) {
+    #container{
+        display: flex;
+        flex-direction: row; /* Empiler les boutons verticalement */
+        justify-content: center; /* Centrer verticalement */
+        align-items: center; /* Centrer horizontalement */
+    
     }
-
     #link-buttons {
-        padding-top: 5%; /* Ajuster pour centrer les boutons plus haut */
+        padding-top: 15%; /* Ajuste la hauteur des boutons */
     }
 
     .akira-button {
-        font-size: 1.2rem;
+        font-size: 0.8rem;
         padding: 10px 20px;
     }
+
+    .leaderboard-container {
+        padding-top: 15%; /* Ajuste la hauteur des boutons */
+        max-width: 80%; /* Prendre plus de place, mais moins qu'en mode portrait */
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 1000;
+    }
+
+    .dropdown-button {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+
+    .dropdown-content a {
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+    #background {
+        background-position: 25% center;
+        background-size: cover; /* Remplit tout l'écran */
+        filter: blur(1px); /* Flou sur mobile */
+    }
+
+    /* Style des liens du menu */
+    .dropdown-content a {
+        font-size: 0.7rem;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 1000;
+        padding: 7px 7px;
+    }
 }
-
-        /* Style général du menu */
-        .dropdown {
-            position: fixed; /* Fixe le menu en haut à droite */
-            top: 10px; /* Décalage depuis le haut */
-            right: 10px; /* Décalage depuis la droite */
-            z-index: 1000; /* Assure que le menu reste au-dessus du contenu */
-        }
-
-        /* Style du bouton du menu */
-        .dropdown-button {
-            background-color: black;
-            color: red;
-            font-family: 'Arial Black', sans-serif;
-            font-size: 1rem;
-            padding: 10px 20px;
-            border: 3px solid red;
-            border-radius: 4px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            cursor: pointer;
-            transition: all 0.3s ease-in-out;
-            position: relative;
-            z-index: 1;
-            width: auto;
-            white-space: nowrap; /* Empêche le texte de se couper */
-        }
-
-        /* Comportement du bouton au survol */
-        .dropdown-button:hover {
-            background-color: red;
-            color: black;
-            transform: scale(1.1);
-            box-shadow: 0 0 15px red;
-        }
-
-        /* Effet glitch sur le bouton */
-        .dropdown-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: repeating-linear-gradient(
-                45deg,
-                rgba(255, 0, 0, 0.6),
-                rgba(255, 0, 0, 0.6) 10px,
-                transparent 10px,
-                transparent 20px
-            );
-            opacity: 0;
-            transition: opacity 0.2s;
-        }
-
-        /* Lorsque l'on survole le bouton du menu, l'effet glitch devient visible */
-        .dropdown-button:hover::before {
-            opacity: 0.4;
-        }
-
-        /* Style du menu déroulant */
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: black;
-            min-width: 100px; /* Fixe une largeur minimale */
-            z-index: 1;
-            border-radius: 4px;
-            margin-top: 5px;
-            border: 3px solid red;
-            width: auto;
-            padding: 0; /* Enlève tout remplissage pour ajuster les éléments */
-            text-align: center;
-        }
-
-        /* Style des liens du menu */
-        .dropdown-content a {
-            color: red;
-            padding: 10px 10px;
-            text-decoration: none;
-            display: block;
-            font-size: 0.6rem;
-            font-family: 'Arial Black', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease-in-out;
-            white-space: nowrap;
-            position: relative; /* Nécessaire pour l'effet ::before */
-        }
-
-        /* Comportement des liens au survol */
-        .dropdown-content a:hover {
-            background-color: red;
-            color: black;
-            transform: scale(1.1);
-            box-shadow: 0 0 15px red;
-        }
-
-        /* Effet glitch sur les liens du menu */
-        .dropdown-content a::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: repeating-linear-gradient(
-                45deg,
-                rgba(255, 0, 0, 0.6),
-                rgba(255, 0, 0, 0.6) 10px,
-                transparent 10px,
-                transparent 20px
-            );
-            opacity: 0;
-            transition: opacity 0.2s;
-        }
-
-        /* Lorsque l'on survole les liens du menu, l'effet glitch devient visible */
-        .dropdown-content a:hover::before {
-            opacity: 0.4;
-        }
-
-
-        /* Style du bouton Instagram */
-        .instagram-button {
-            position: fixed;
-            top: 10px;
-            right: 135px;
-            z-index: 1000;
-            background-color: black;
-            padding: 8px;
-            border: 3px solid red;
-            border-radius: 50%;
-            transition: all 0.3s ease-in-out;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 52px;
-            height: 52px;
-        }
-
-        /* Icône Instagram */
-        .instagram-icon {
-            width: 20px;
-            height: 20px;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        /* Effet hover */
-        .instagram-button:hover {
-            background-color: red;
-            box-shadow: 0 0 15px red;
-            transform: scale(1.1);
-        }
-
-        .instagram-button:hover .instagram-icon {
-            filter: invert(0%);
-            transform: rotate(10deg);
-        }

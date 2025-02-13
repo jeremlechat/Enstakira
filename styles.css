@@ -160,8 +160,8 @@
     #shiny-image {
         position: relative;
         height: auto;
-        margin-top: -120px; /* Augmenter la valeur pour remonter le logo */
-        width: 65vw;
+        margin-top: -150px; /* Augmenter la valeur pour remonter le logo */
+        width: 63vw;
         object-fit: contain;
     }
 
@@ -181,7 +181,7 @@
     }
     
     .akira-button {
-        font-size: 0.7rem;
+        font-size: 0.8rem;
         padding: 12px 24px;
         font-family: 'Montserrat', sans-serif;
         font-weight: 1000;
