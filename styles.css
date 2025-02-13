@@ -90,6 +90,11 @@
 
 /* Téléphones verticaux */
 @media (max-width: 640px) {
+    html, body {
+        overflow: hidden; /* Empêche le scroll */
+        height: 100vh; /* Force à remplir la hauteur de l'écran */
+    }
+    
     @keyframes titleAppear {
         0% {
             transform: scale(0.8); /* Pas de déplacement vertical */
@@ -133,6 +138,11 @@
 
 /* Téléphones horizontaux et tablettes */
 @media (min-width: 641px) and (max-width: 1240px) {
+    html, body {
+        overflow: hidden; /* Empêche le scroll */
+        height: 100vh; /* Force à remplir la hauteur de l'écran */
+    }
+
     @keyframes titleAppear {
         0% {
             transform: scale(0.8); /* Pas de déplacement vertical */
@@ -160,7 +170,7 @@
     #shiny-image {
         position: relative;
         height: auto;
-        margin-top: -150px; /* Augmenter la valeur pour remonter le logo */
+        margin-top: -160px; /* Augmenter la valeur pour remonter le logo */
         width: 63vw;
         object-fit: contain;
     }

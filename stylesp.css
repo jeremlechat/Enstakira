@@ -87,10 +87,10 @@
 /* Adapter la largeur du tableau leaderboard à 1/3 de l'écran et le centrer */
 .leaderboard-container {
     width: 100%; /* Prendre toute la largeur disponible */
-    max-width: 35%; /* Agrandir légèrement la taille du leaderboard */
+    max-width: 45%; /* Agrandir légèrement la taille du leaderboard */
     margin: 0;
     margin-right: 0; /* Coller à droite */
-    font-size: 1.5rem; /* Agrandir légèrement la taille du classement */
+    font-size: 1.4rem; /* Agrandir légèrement la taille du classement */
 }
 
 /* Conteneur du leaderboard centré */
@@ -264,16 +264,28 @@
 
 /* Sur les écrans très petits (smartphones en mode portrait) */
 @media (max-width: 640px) {
+    #background {
+        background-size: cover; /* Couvre l'écran entier */
+        background-position: center center; /* Centre l'image */
+        background-attachment: fixed; /* Fixe l'image en arrière-plan */
+    }
+    html, body {
+        overflow: hidden; /* Empêche le scroll */
+        height: 100vh; /* Force à remplir la hauteur de l'écran */
+    }
+
     #container{
         display: flex;
-        flex-direction: column; /* Empiler les boutons verticalement */
+        flex-direction: column-reverse; /* Empiler les boutons verticalement */
         justify-content: center; /* Centrer verticalement */
         align-items: center; /* Centrer horizontalement */    
     }
     
     #link-buttons {
+        position: relative;
         padding-top: 30%; /* Plus de marges en haut pour mieux centrer */
         margin-left: 0;
+        bottom: 100px;
     }
 
     .akira-button {
@@ -281,12 +293,35 @@
         padding: 10px 20px;
         font-family: 'Montserrat', sans-serif;
         font-weight: 1000;
+        margin-bottom: 2px;
     }
 
     .leaderboard-container {
-        min-width: 150%; 
+        position: relative;
+        min-width: 140%; 
         font-family: 'Montserrat', sans-serif;
-        font-weight: 1000;   
+        font-weight: 1000;
+        font-size: 0.8rem;
+        margin-top: 30%; /* Ajoute de l'espace en haut pour le baisser un peu */
+        left: 45px;
+        display: flex;
+        justify-content: center; /* Centrer horizontalement */
+    }
+
+    .leaderboard-container .bg-black {
+        font-family: 'Montserrat', sans-serif; /* Change la police pour les téléphones */
+    }
+
+    .leaderboard-container h2 {
+        font-size: 1.5rem; /* Réduire la taille du titre */
+    }
+
+    .leaderboard-container table {
+        font-size: 0.7rem; /* Réduire la taille du texte du tableau */
+    }
+
+    .leaderboard-container th {
+        font-size: 0.9rem; /* Ajuster la taille de la police */
     }
 
     .dropdown-button {
@@ -325,6 +360,15 @@
 
 /* Sur les smartphones en mode paysage et tablettes en mode portrait */
 @media (min-width: 641px) and (max-width: 1024px) {
+    #background {
+        background-size: cover; /* Couvre l'écran entier */
+        background-position: center center; /* Centre l'image */
+        background-attachment: fixed; /* Fixe l'image en arrière-plan */
+    }
+    html, body {
+        overflow: hidden; /* Empêche le scroll */
+        height: 100vh; /* Force à remplir la hauteur de l'écran */
+    }
     #container{
         display: flex;
         flex-direction: row; /* Empiler les boutons verticalement */
@@ -342,7 +386,8 @@
     }
 
     .leaderboard-container {
-        padding-top: 15%; /* Ajuste la hauteur des boutons */
+        position: relative;
+        top: -70px;
         max-width: 80%; /* Prendre plus de place, mais moins qu'en mode portrait */
         font-family: 'Montserrat', sans-serif;
         font-weight: 1000;
