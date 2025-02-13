@@ -90,8 +90,19 @@
 
 /* Téléphones verticaux */
 @media (max-width: 640px) {
+    @keyframes titleAppear {
+        0% {
+            transform: scale(0.8); /* Pas de déplacement vertical */
+            opacity: 0;
+        }
+        100% {
+            transform: scale(1); /* Agrandissement sans mouvement vertical */
+            opacity: 1;
+        }
+    }
+
     .image-appear {
-        animation: titleAppear 0.2s ease-out forwards; /* Animation d'origine */
+        animation: titleAppear 0.5s ease-out forwards; /* Animation d'origine */
     }
     
     #container {
@@ -120,8 +131,19 @@
 
 /* Téléphones horizontaux et tablettes */
 @media (min-width: 641px) and (max-width: 1024px) {
+    @keyframes titleAppear {
+        0% {
+            transform: scale(0.8); /* Pas de déplacement vertical */
+            opacity: 0;
+        }
+        100% {
+            transform: scale(1); /* Agrandissement sans mouvement vertical */
+            opacity: 1;
+        }
+    }
+    
     .image-appear {
-        animation: titleAppear 0.2s ease-out forwards; /* Animation d'origine */
+        animation: titleAppear 0.5s ease-out forwards; /* Animation d'origine */
     }
 
     @keyframes titleAppear {
@@ -130,7 +152,7 @@
             opacity: 0;
         }
         100% {
-            transform: translateY(-50px) scale(0.9); /* Arrivée plus haut */
+            transform: translateY(-70px) scale(0.9); /* Arrivée plus haut */
             opacity: 1;
         }
     }
@@ -147,21 +169,24 @@
     #shiny-image {
         height: auto;
         margin-top: 10px;
-        width: 60vw; /* Ajuste la largeur du logo (25% de la largeur de l'écran) */
+        width: 65vw; /* Ajuste la largeur du logo (25% de la largeur de l'écran) */
         object-fit: contain; /* Garde les proportions de l'image */
     }
 
     #link-buttons {
         display: flex;
-        flex-direction: row; /* Garde les boutons en colonne */
-        align-items: center;
-        margin-left: 2rem; /* Espace entre le logo et les boutons */
+        flex-direction: row; /* Les boutons en ligne */
+        align-items: center; /* Centre les boutons verticalement */
+        justify-content: center; /* Centre les boutons horizontalement */
+        margin-left: 2rem; /* Espace entre le logo et les boutons (si nécessaire) */
         opacity: 1; /* Assurer que les boutons sont visibles */
         position: absolute;
         bottom: 10%; /* Rapproche les boutons du bas de l'écran */
-        width: 100%; /* Pour s'assurer que le conteneur des boutons prend toute la largeur */
+        left: 50%; /* Centre horizontalement */
+        transform: translateX(-50%); /* Décale de 50% de sa propre largeur pour un centrage parfait */
+        width: auto; /* La largeur s'adapte automatiquement au contenu */
     }
-
+    
     .akira-button {
         font-size: 0.7rem;
         padding: 12px 24px;
@@ -172,7 +197,8 @@
     #background {
         background-image: url('assets/output.gif');
         background-size: cover; /* L'image couvre tout l'écran */
-        background-position: center; /* Centrer l'image */
+        background-position: center center; /* Centrer l'image sur l'écran */
+        background-repeat: no-repeat; /* Evite de répéter l'image */
         height: 100vh; /* Hauteur de l'écran */
         width: 100vw; /* Largeur de l'écran */
         position: absolute;
@@ -180,7 +206,8 @@
         left: 0;
         z-index: -1; /* L'image reste derrière les autres éléments */
         filter: brightness(50%); /* Ajuste la luminosité */
-}
+        object-fit: cover; /* Ajoute cette ligne pour ajuster l'image à l'écran */
+    }
 
 }
 
