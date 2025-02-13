@@ -330,6 +330,130 @@
             filter: invert(0%);
             transform: rotate(10deg);
         }
+
+        /* Sur les écrans très petits (smartphones en mode portrait) */
+        @media (max-width: 640px) {
+            .teams-list{
+                position: relative;
+                top: 20px;
+                width:60%;
+                margin-bottom: 0px;
+            }
+
+            .teams-list li {
+                display: flex;
+                justify-content: space-between; /* Place les éléments aux extrémités */
+                margin: 11px 0;
+                width: 100%; /* Occupe toute la largeur du conteneur */
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 1000;
+
+            }
+
+            .search-bar {
+                position: relative;
+                top: 22px;
+                width: 65%;
+                font-size: 0.8rem;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 1000;
+
+            }
+
+            .sort-buttons{
+                margin-top:0px;
+            }
+
+            .sort-button {
+                font-size: 0.6rem;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 1000;
+            }
+
+            .dropdown-content a {
+                font-size: 0.5rem;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 1000;
+                padding-right: -20px;
+            }
+            .dropdown-button {
+                font-size: 0.9rem;
+                padding: 8px 16px;
+            }
+
+            /* Style du bouton Instagram */
+            .instagram-button {
+                right: 120px;
+                width: 25px;
+                height: 25px;
+            }
+        }
+
+
+
+        /* Sur les smartphones en mode paysage et tablettes en mode portrait */
+        @media (min-width: 641px) and (max-width: 1024px) {
+            
+            .teams-list {
+                position: relative;
+                top: 10px; /* Ajuste la position si nécessaire */
+                width:90%;
+                max-height: 40vh; /* Utilise 80% de la hauteur de l'écran */
+                margin-bottom: 0px;
+            }
+
+            .sort-buttons{
+                margin-top:0px;
+            }
+
+            .sort-button {
+                font-size: 0.6rem;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 1000;
+            }
+
+            .teams-list li {
+                display: flex;
+                justify-content: space-between; /* Place les éléments aux extrémités */
+                margin: 11px 0;
+                width: 100%; /* Occupe toute la largeur du conteneur */
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 1000;
+
+            }
+
+            .search-bar {
+                position: relative;
+                top: 22px;
+                width: 100%;
+                font-size: 0.8rem;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 1000;
+
+            }
+
+
+            /* Style des liens du menu */
+            .dropdown-content a {
+                font-size: 0.6rem;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 1000;
+                padding: 7px 7px;
+            }
+            .dropdown-button {
+                font-size: 1rem;
+                padding: 8px 16px;
+            }
+
+            /* Style du bouton Instagram */
+            .instagram-button {
+                right: 120px;
+                width: 25px;
+                height: 25px;
+            }
+
+        }
+
  
     </style>
 </head>
