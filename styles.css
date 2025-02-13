@@ -38,8 +38,9 @@
 }
 
 .image-appear {
-    animation: titleAppear 1s ease-out forwards; /* Animation de titre */
+    animation: titleAppear 1s ease-out forwards; /* Animation d'origine */
     animation-iteration-count: 1;
+    animation-fill-mode: forwards; /* L'élément restera dans son état final après l'animation */
 }
 
 /* Style des boutons façon Akira */
@@ -115,37 +116,65 @@
 
 /* Téléphones horizontaux et tablettes */
 @media (min-width: 641px) and (max-width: 1024px) {
+    @keyframes titleAppear {
+        0% {
+            transform: translateY(20px) scale(0.8); /* Départ plus haut */
+            opacity: 0;
+        }
+        100% {
+            transform: translateY(-50px) scale(0.9); /* Arrivée plus haut */
+            opacity: 1;
+        }
+    }
+    
     #container {
         height: 100vh;
         display: flex;
         flex-direction: row; /* Alignement horizontal */
         align-items: center; /* Centrer verticalement */
-        justify-content: center; /* Centrer horizontalement */
+        justify-content: flex-start; /* Aligner à gauche */
         padding: 10px;
     }
 
     #shiny-image {
         height: auto;
-        width: 25vw; /* Ajuste la largeur du logo (25% de la largeur de l'écran) */
-        max-height: 50vh; /* Limite la hauteur du logo */
+        margin-top: 10px;
+        width: 80vw; /* Ajuste la largeur du logo (25% de la largeur de l'écran) */
         object-fit: contain; /* Garde les proportions de l'image */
     }
 
     #link-buttons {
         display: flex;
-        flex-direction: row; /* Met les boutons en ligne */
-        justify-content: space-around; /* Espacement entre les boutons */
-        align-items: center; /* Centrage vertical des boutons */
+        flex-direction: row; /* Garde les boutons en colonne */
+        align-items: center;
+        gap: 1rem; /* Espacement entre les boutons */
         margin-left: 2rem; /* Espace entre le logo et les boutons */
         opacity: 1; /* Assurer que les boutons sont visibles */
+        position: absolute;
+        bottom: 10%; /* Rapproche les boutons du bas de l'écran */
+        width: 100%; /* Pour s'assurer que le conteneur des boutons prend toute la largeur */
     }
 
     .akira-button {
-        font-size: 0.9rem; /* Réduit la taille de la police */
-        padding: 8px 16px;
+        font-size: 1rem;
+        padding: 12px 24px;
         font-family: 'Montserrat', sans-serif;
-        font-style: bold;
+        font-weight: bold;
+        white-space: nowrap; /* Empêche le texte de se répartir sur plusieurs lignes */
     }
+    #background {
+        background-image: url('assets/output.gif');
+        background-size: cover; /* L'image couvre tout l'écran */
+        background-position: center; /* Centrer l'image */
+        height: 100vh; /* Hauteur de l'écran */
+        width: 100vw; /* Largeur de l'écran */
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1; /* L'image reste derrière les autres éléments */
+        filter: brightness(50%); /* Ajuste la luminosité */
+}
+
 }
 
 /* Ordinateurs */
@@ -177,6 +206,7 @@
         padding: 10px 20px;
         font-family: 'Arial Black', sans-serif;
     }
+    
 }
 
 /* Effet tactile différent */
