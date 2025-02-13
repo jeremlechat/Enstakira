@@ -15,6 +15,12 @@
     animation: slideIn 0.6s ease-out forwards;
 }
 
+/* Lorsque l'animation est terminée, réactiver les événements de survol */
+.button-appear.activated {
+    pointer-events: auto; /* Réactive le survol après l'animation */
+    opacity: 1; /* Assurer que le bouton est visible */
+}
+
 @keyframes titleAppear {
     0% {
         transform: translateY(-30px) scale(0.8); /* Départ plus haut */
@@ -33,6 +39,7 @@
 
 .image-appear {
     animation: titleAppear 1s ease-out forwards; /* Animation de titre */
+    animation-iteration-count: 1;
 }
 
 /* Style des boutons façon Akira */
@@ -102,6 +109,7 @@
         font-size: 0.8rem;
         padding: 8px 16px;
         font-family: 'Arial Black', sans-serif;
+        font-style: bold;
     }
 }
 
@@ -110,24 +118,26 @@
     #container {
         height: 100vh;
         display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-around;
+        flex-direction: row; /* Alignement horizontal */
+        align-items: center; /* Centrer verticalement */
+        justify-content: flex-start; /* Aligner à gauche */
+        padding: 10px;
     }
 
     #shiny-image {
-        height: 50vh;
-        width: auto;
-        max-height: 70vh;
+        height: auto;
+        width: 25vw; /* Ajuste la largeur du logo (25% de la largeur de l'écran) */
+        max-height: 50vh; /* Limite la hauteur du logo */
+        object-fit: contain; /* Garde les proportions de l'image */
     }
 
     #link-buttons {
         display: flex;
-        flex-direction: column;
+        flex-direction: column; /* Garde les boutons en colonne */
         align-items: center;
-        gap: 1px;
-        margin-bottom: 0.2vh; /* Ajuste selon ton besoin */
-
+        gap: 1rem; /* Espacement entre les boutons */
+        margin-left: 2rem; /* Espace entre le logo et les boutons */
+        opacity: 1; /* Assurer que les boutons sont visibles */
     }
 
     .akira-button {

@@ -25,4 +25,11 @@ function triggerEffect() {
             button.classList.add('button-appear'); // Ajouter l'animation d'apparition
         }, index * 150); // Décalage de l'apparition des boutons
     });
+
+    // Ajouter un écouteur d'événement pour chaque bouton afin d'activer le survol après l'animation
+    buttons.forEach((button) => {
+        button.addEventListener('animationend', () => {
+            button.classList.add('activated'); // Ajoute la classe 'activated' après l'animation
+        });
+    });
 }
