@@ -114,7 +114,7 @@
         height: 50vh;
         width: auto;
         max-height: 50vh;
-        margin-top: -60px; /* Augmenter la valeur pour remonter le logo */
+        margin-top: -250px; /* Augmenter la valeur pour remonter le logo */
         position: relative; /* Utiliser position relative pour jouer sur le margin-top */
     }
 
@@ -127,12 +127,12 @@
         font-size: 0.8rem;
         padding: 8px 16px;
         font-family: 'Montserrat', sans-serif;
-        font-style: bold;
+        font-weight: 1000;
     }
 }
 
 /* Téléphones horizontaux et tablettes */
-@media (min-width: 641px) and (max-width: 1024px) {
+@media (min-width: 641px) and (max-width: 1240px) {
     @keyframes titleAppear {
         0% {
             transform: scale(0.8); /* Pas de déplacement vertical */
@@ -160,7 +160,7 @@
     #shiny-image {
         position: relative;
         height: auto;
-        margin-top: -50px; /* Augmenter la valeur pour remonter le logo */
+        margin-top: -120px; /* Augmenter la valeur pour remonter le logo */
         width: 65vw;
         object-fit: contain;
     }
@@ -184,7 +184,7 @@
         font-size: 0.7rem;
         padding: 12px 24px;
         font-family: 'Montserrat', sans-serif;
-        font-weight: 800;
+        font-weight: 1000;
         white-space: nowrap; /* Empêche le texte de se répartir sur plusieurs lignes */
     }
     #background {
@@ -205,7 +205,7 @@
 }
 
 /* Ordinateurs */
-@media (min-width: 1025px) {
+@media (min-width: 1241px) {
     #container {
         display: flex;
         flex-direction: column;
