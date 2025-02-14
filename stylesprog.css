@@ -9,7 +9,6 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    filter: blur(1px); /* Légère flou sur l'image */
     z-index: -1; /* Pour que l'image soit derrière tous les autres éléments */
 }
 

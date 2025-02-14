@@ -19,16 +19,20 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            overflow:auto;
         }
 
         /* Effet de flou sur le fond */
-        .background-blur {
-            position: fixed;
+        #background {
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            backdrop-filter: blur(1px);
+            min-height: 100vh;
+            background-image: url('assets/programme.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             z-index: -1;
         }
 
@@ -48,7 +52,7 @@
             background-color: black;
             color: red;
             font-family: 'Arial Black', sans-serif;
-            font-size: 1rem;
+            font-size: clamp(2.5vh, 2.5vh, 1.4vw);
             padding: 12px 24px;
             border: 3px solid red;
             border-radius: 4px;
@@ -79,14 +83,13 @@
         .card .front {
             background: black;
             color: rgb(170, 164, 164);
-            font-size: 20px;
             font-weight: bold;
         }
 
         .front ul {
             margin-left: 5vw;
             padding-left: 0; /* Empêche un éventuel décalage supplémentaire */
-            font-size: 0.7rem;
+            font-size: clamp(1.6vh, 1.6vh, 0.7rem);
         }
 
         .front p {
@@ -269,15 +272,13 @@
 
 /* Sur les écrans très petits (smartphones en mode portrait) */
 @media (max-width: 640px) {
-                html, body {
-            height: 100vh; /* Force à remplir la hauteur de l'écran */
-            }
+                
             #background {
-                background-position: 100% center !important;
+                background-position: 80% center !important;
             }
             
             .card .front{
-                font-size: 0.8rem;
+                font-size: 1.6vh;
                 font-family: 'Montserrat', sans-serif;
                 font-weight: 1000;
                 letter-spacing: 1px;
@@ -289,7 +290,7 @@
             }
 
             ul li {
-                font-size: 0.6rem; /* Ajuste la taille de la police */
+                font-size: 1vh; /* Ajuste la taille de la police */
                 font-family: 'Montserrat', sans-serif;
                 font-weight: 1000;    
             }
@@ -337,19 +338,19 @@
             }
 
 
-            .card .front, .card .back {
-                font-size: 0.6rem;
+            .card .front {
+                font-size: clamp(1.1vw, 1.3vw, 3.0vh);
                 font-family: 'Montserrat', sans-serif;
                 font-weight: 1000;
                 letter-spacing: 1px;
             }
 
-            .back h1 {
-                font-size: 1.3rem;
+            ul li {
+                font-size: 2.0vh; /* Ajuste la taille de la police */
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 1000;    
             }
-            .front h1 {
-                font-size: 1.3rem;
-            }
+
 
             /* Style des liens du menu */
             .dropdown-content a {
@@ -414,7 +415,7 @@
         <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="instagram-icon">
     </a>
 
-    <div class="background-blur"></div>
+    <div id="background" class="w-full h-full bg-cover bg-center bg-no-repeat"></div>
     <div class="dropdown">
         <button class="dropdown-button" onclick="toggleMenu()">Menu</button>
         <div class="dropdown-content">
