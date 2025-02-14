@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carte Animée</title>
+    <title>Derrière le prez, la clé est.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
     <style>
         /* Style du corps */
         body {
@@ -13,7 +15,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: url('assets/we.jpg') no-repeat center center/cover;
+            background: url('assets/programme.jpeg') no-repeat center center/cover;
         }
 
         /* Effet de flou sur le fond */
@@ -43,20 +45,19 @@
             background-color: black;
             color: red;
             font-family: 'Arial Black', sans-serif;
-            font-size: 1.5rem;
+            font-size: 1rem;
             padding: 12px 24px;
             border: 3px solid red;
             border-radius: 4px;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            text-align: center;
+            letter-spacing: 0.5px;
+            text-align: left;
             display: flex;
             align-items: center;
             justify-content: center;
             box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
             opacity: 0.9; /* Réduit l'opacité de la carte (valeur entre 0 et 1) */
         }
-
 
 
         /* Faces de la carte */
@@ -66,8 +67,7 @@
             height: 100%;
             backface-visibility: hidden;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            flex-direction:column;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
@@ -75,10 +75,35 @@
         /* Face avant */
         .card .front {
             background: black;
-            color: white;
+            color: rgb(170, 164, 164);
             font-size: 20px;
             font-weight: bold;
         }
+
+        .front ul {
+            margin-left: 5vw;
+            padding-left: 0; /* Empêche un éventuel décalage supplémentaire */
+            font-size: 0.7rem;
+        }
+
+        .front p {
+            margin-left:2vw;
+            margin-bottom: 0;
+            margin-top:0;
+            margin-right: 1vw;
+        }
+
+        .alineas{
+            margin-left:5vw;
+            margin-bottom: 0;
+        }
+
+        .alineas1{
+            margin-left:5vw;
+            margin-bottom: 0;
+            margin-top: 4vw;
+        }
+
 
         /* Style général du menu */
         .dropdown {
@@ -201,8 +226,8 @@
             opacity: 0.4;
         }
 
-        /* Style du bouton Instagram */
-        .instagram-button {
+                /* Style du bouton Instagram */
+                .instagram-button {
             position: fixed;
             top: 10px;
             right: 135px;
@@ -239,91 +264,144 @@
         }
 
 
-        /* Sur les écrans très petits (smartphones en mode portrait) */
-        @media (max-width: 640px) {
-            html, body {
-        overflow: hidden; /* Empêche le scroll */
-        height: 100vh; /* Force à remplir la hauteur de l'écran */
-    }
+/* Sur les écrans très petits (smartphones en mode portrait) */
+@media (max-width: 640px) {
+                html, body {
+            height: 100vh; /* Force à remplir la hauteur de l'écran */
+            }
+            #background {
+                background-position: 80% center !important;
+            }
+            .card .front{
+                font-size: 0.8rem;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 1000;
+                letter-spacing: 1px;
 
+            }
 
-        .card .front, .card .back {
-            font-size: 0.6rem;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 1000;
-            letter-spacing: 1px;
-        }
+            .alineas1 {
+                margin-top: 9vw;
+            }
 
-        .back h1 {
-            font-size: 1.3rem;
-        }
-        .front h1 {
-            font-size: 1.3rem;
-        }
+            ul li {
+                font-size: 0.6rem; /* Ajuste la taille de la police */
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 1000;    
+            }
 
-        /* Style des liens du menu */
-        .dropdown-content a {
-        font-size: 0.6rem;
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 1000;
-        padding: 7px 7px;
-        }
-        .dropdown-button {
-        font-size: 1rem;
-        padding: 8px 16px;
-        }
+                .dropdown {
+                right: 20px;
+            }
 
-        /* Style du bouton Instagram */
-        .instagram-button {
-        right: 120px;
-        width: 25px;
-        height: 25px;
-        }
+            /* Style des liens du menu */
+            .dropdown-content a {
+                font-size: 0.6rem;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 1000;
+                padding: 7px 6px;
+            }
+            .dropdown-button {
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 900;
+                letter-spacing: 1px;
+                font-size: 0.9rem;
+                padding: 10px 16px;
+            }
+
+            /* Icône Instagram */
+            .instagram-icon {
+                width: 18px;
+                height: 18px;
+                transition: transform 0.3s ease-in-out;
+            }
+
+            /* Style du bouton Instagram */
+            .instagram-button {
+                right: 120px;
+                width: 21px;
+                height: 21px;
+            }
         }
 
 
         /* Sur les smartphones en mode paysage et tablettes en mode portrait */
         @media (min-width: 641px) and (max-width: 1024px) {
+
             html, body {
-        height: 100vh; /* Force à remplir la hauteur de l'écran */
-    }
+                height: 100vh; /* Force à remplir la hauteur de l'écran */
+            }
 
 
-        .card .front, .card .back {
+            .card .front, .card .back {
+                font-size: 0.6rem;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 1000;
+                letter-spacing: 1px;
+            }
+
+            .back h1 {
+                font-size: 1.3rem;
+            }
+            .front h1 {
+                font-size: 1.3rem;
+            }
+
+            /* Style des liens du menu */
+            .dropdown-content a {
             font-size: 0.6rem;
             font-family: 'Montserrat', sans-serif;
             font-weight: 1000;
-            letter-spacing: 1px;
-        }
+            padding: 7px 7px;
+            }
+            .dropdown-button {
+            font-size: 1rem;
+            padding: 8px 16px;
+            }
 
-        .back h1 {
-            font-size: 1.3rem;
-        }
-        .front h1 {
-            font-size: 1.3rem;
-        }
+            /* Style du bouton Instagram */
+            .instagram-button {
+            right: 120px;
+            width: 25px;
+            height: 25px;
+            }
 
-        /* Style des liens du menu */
-        .dropdown-content a {
-        font-size: 0.6rem;
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 1000;
-        padding: 7px 7px;
-        }
-        .dropdown-button {
-        font-size: 1rem;
-        padding: 8px 16px;
-        }
+            .dropdown {
+            right: 20px;
+            }
 
-        /* Style du bouton Instagram */
-        .instagram-button {
-        right: 120px;
-        width: 25px;
-        height: 25px;
+            /* Style des liens du menu */
+            .dropdown-content a {
+                font-size: 0.6rem;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 1000;
+                padding: 7px 6px;
+            }
+            .dropdown-button {
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 900;
+                letter-spacing: 1px;
+                font-size: 0.9rem;
+                padding: 8px 16px;
+            }
+
+            /* Icône Instagram */
+            .instagram-icon {
+                width: 18px;
+                height: 18px;
+                transition: transform 0.3s ease-in-out;
+            }
+
+            /* Style du bouton Instagram */
+            .instagram-button {
+                right: 120px;
+                width: 21px;
+                height: 21px;
         }
-        }
+    }
 
 
+        
 
     </style>
 </head>
@@ -345,7 +423,23 @@
 
     <div class="card-container">
         <div class="card">
-            <div class="front">Sécu</div>
+            <div class="front">
+                <div class="alineas1"> à toi jeune ingénieur ! Tu es convié à notre activité folle de course </div>
+                <p>aux points : Au programme tu auras des activités disponibles sur tout le campus comme :</p>
+                <ul>
+                    <li>Cross-bar challenge</li>
+                    <li>Tournante</li>
+                    <li>Béret</li>
+                    <li>Spikeball</li>
+                    <li>Billard et baby</li>
+                    <li>Fléchettes</li>
+                    <li>Mario Kart</li>
+                    <li>Just Dance</li>
+                    <li>Et bien d’autres !</li>
+                </ul>
+                <div class="alineas">Mais ce n’est pas tout, on sait que jouer ou réfléchir peut être</div><p>fatiguant, tu auras accès à un stand pour te requinquer ! 
+                    Tu pourras compter sur tes membres de la liste ENST’Akira pour te faire vivre tes meilleurs moments sur place !
+                    On te distribuera une brochure avec l’emplacement des activités ainsi que leur apport en points, dans tous les cas tu es gagnant !</p></div>
         </div>
     </div>
     <script>
