@@ -12,7 +12,7 @@ function triggerEffect() {
     if (logoAnimated) return;
 
     // Appliquer l'effet de flou au fond
-    background.classList.add('blur-md');
+    background.classList.add(   );
 
     // Appliquer l'animation de translation et agrandissement à l'image
     shinyImage.style.transform = `translateY(-${window.innerHeight * 0.3}px)`; // Décalage vertical
