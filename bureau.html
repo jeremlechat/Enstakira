@@ -319,6 +319,8 @@
         /* Sur les écrans très petits (smartphones en mode portrait) */
         @media (max-width: 640px) {
             html, body {
+                background-position: 62% center !important;
+
         height: 110vh; /* Force à remplir la hauteur de l'écran */
     }
         .images {
@@ -337,9 +339,9 @@
 
         .person-photo {
             width: 25vw;
-            max-width: 18vw;
+            max-width: 18vh;
             height: 25vw;
-            max-height: 18vw;
+            max-height: 18vh;
             object-fit: cover;
             border-radius: 10px;
         }
@@ -408,13 +410,15 @@
         /* Sur les smartphones en mode paysage et tablettes en mode portrait */
         @media (min-width: 641px) and (max-width: 1024px) {
             html, body {
+                overflow:hidden;
         height: 110vh; /* Force à remplir la hauteur de l'écran */
     }
             .images {
             display: flex;
             justify-content: center;
             flex-wrap: wrap; /* Permet aux images de passer à la ligne si l'écran est trop petit */
-            gap: -0.2vw; /* Espacement uniforme entre chaque figure */
+            gap: 0vw; /* Espacement uniforme entre chaque figure */
+            margin-top: 10px;;
         }
 
         .person-figure {
@@ -425,8 +429,8 @@
         }
 
         .person-photo {
-            width: 10vw;
-            height: 10vw;
+            width: 11vw;
+            height: 11vw;
             object-fit: cover;
             border-radius: 10px;
         }
@@ -450,7 +454,7 @@
             font-size: 1.3rem;
         }
         .front h1 {
-            margin-bottom: -10px;
+            margin-bottom: -30px;
             font-size: 5vh;
         }
 
