@@ -319,13 +319,12 @@
         /* Sur les écrans très petits (smartphones en mode portrait) */
         @media (max-width: 640px) {
             html, body {
-        overflow: hidden; /* Empêche le scroll */
         height: 110vh; /* Force à remplir la hauteur de l'écran */
     }
         .images {
             display: flex;
             justify-content: center;
-            flex-wrap: start; /* Permet aux images de passer à la ligne si l'écran est trop petit */
+            flex-wrap: wrap; /* Permet aux images de passer à la ligne si l'écran est trop petit */
             gap: 0vw; /* Espacement uniforme entre chaque figure */
         }
 
@@ -334,8 +333,6 @@
             flex-direction: column;
             align-items: center; /* Centre l'image et la légende */
             text-align: center;
-            margin:0;
-            padding:0;
         }
 
         .person-photo {
@@ -417,7 +414,7 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap; /* Permet aux images de passer à la ligne si l'écran est trop petit */
-            gap: -1vw; /* Espacement uniforme entre chaque figure */
+            gap: -0.2vw; /* Espacement uniforme entre chaque figure */
         }
 
         .person-figure {
