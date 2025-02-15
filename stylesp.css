@@ -32,7 +32,7 @@
     align-items: center; /* Centrer horizontalement */
     animation: slideIn 0.6s ease-out forwards;
     margin-left: 40px; /* Décalage à droite de 20px */
-    margin-bottom: 240px;
+    margin-bottom: 17vw;
     padding-top: 20%; /* Remontée des boutons */
 }
 
@@ -293,6 +293,7 @@
         padding-top: 30%; /* Plus de marges en haut pour mieux centrer */
         margin-left: 0;
         bottom: 100px;
+        margin-top:2vh;
     }
 
     .akira-button {
@@ -400,6 +401,8 @@
     }
     #link-buttons {
         padding-top: 15%; /* Ajuste la hauteur des boutons */
+        margin-bottom:36vw;
+
     }
 
     .akira-button {

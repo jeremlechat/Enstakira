@@ -64,6 +64,7 @@
     font-weight: bold;
     text-align: right;
     width: 100px;
+    text-shadow: 1px 1px 0.5px rgba(0, 0, 0, 1);
 }
 
 /* Style des blocs transformés en boutons façon Akira */

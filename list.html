@@ -6,7 +6,7 @@
     <title>Photos et Boutons Akira</title>
     <link rel="preload" href="assets/moi.JPG" as="image">
     <link rel="preload" href="assets/title.png" as="image">
-
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
 
     <style>
         /* Style du corps */
@@ -18,6 +18,10 @@
             align-items: center;
             height: 100vh;
             background: url('assets/list.jpeg') no-repeat center center/cover;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            overflow:auto;
         }
 
         /* Effet de flou sur le fond */
@@ -27,7 +31,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(3px);
             z-index: -1;
         }
 
@@ -52,7 +56,7 @@
 
         /* Style des images */
         .person-photo {
-            width: 150px;
+            width: 200px;
             height: 200px;
             object-fit: cover;
             border-radius: 10px;
@@ -299,9 +303,11 @@
         /* Sur les écrans très petits (smartphones en mode portrait) */
         @media (max-width: 640px) {
             html, body {
-        overflow: hidden; /* Empêche le scroll */
-        height: 100vh; /* Force à remplir la hauteur de l'écran */
-    }
+                height: 130vh; /* Force à remplir la hauteur de l'écran */
+                background-position: 62% 20% !important;
+                
+
+            }
 
                         .images {
                 display: flex;
@@ -313,6 +319,7 @@
             .person-figure {
                 text-align: center;
                 margin: 0;
+                margin-top: -380px;
                 padding: 0;
                 display: flex;
                 flex-direction: column; /* Image au-dessus du texte */
@@ -320,7 +327,7 @@
             }
 
             .person-photo {
-                width: 20vw;
+                width: 30vw;
                 height: 30vw;
                 object-fit: cover; /* Assurer une bonne proportion de l'image */
             }
@@ -353,37 +360,54 @@
 
 
             .akira-button {
-                font-size: 0.8rem;
+                font-size: 0.9rem;
                 font-family: 'Montserrat', sans-serif;
                 font-weight: 1000;
                 letter-spacing: 1px;
+                padding: 12px 20px;
 
             }  
-            .button-row {
+            .buttons {
+                margin-top: -200px;
+            }
+            .button-row { 
                 gap:1px;
                 margin-bottom: 4px;
 
             }  
             
-            
+
+            .dropdown {
+                right: 20px;
+            }
 
             /* Style des liens du menu */
             .dropdown-content a {
                 font-size: 0.6rem;
                 font-family: 'Montserrat', sans-serif;
                 font-weight: 1000;
-                padding: 7px 7px;
+                padding: 7px 6px;
             }
             .dropdown-button {
-                font-size: 1rem;
-                padding: 8px 16px;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 900;
+                letter-spacing: 1px;
+                font-size: 0.9rem;
+                padding: 10px 16px;
+            }
+
+            /* Icône Instagram */
+            .instagram-icon {
+                width: 18px;
+                height: 18px;
+                transition: transform 0.3s ease-in-out;
             }
 
             /* Style du bouton Instagram */
             .instagram-button {
                 right: 120px;
-                width: 25px;
-                height: 25px;
+                width: 21px;
+                height: 21px;
             }
         }
 
@@ -391,7 +415,7 @@
         /* Sur les smartphones en mode paysage et tablettes en mode portrait */
         @media (min-width: 641px) and (max-width: 1024px) {
             html, body {
-        height: 100vh; /* Force à remplir la hauteur de l'écran */
+        height: 120vh; /* Force à remplir la hauteur de l'écran */
     }
 
             .images img {
@@ -399,6 +423,7 @@
             top: 20px;
             left: 11px;
             margin: 0;
+            margin-top:-30vh;
             padding: 0;
             display: block;
             max-width: 100%;
@@ -415,8 +440,8 @@
 
 
             .person-photo {
-            width: 13vw;
-            height: 16vw;
+            width: clamp(18vw, 19vh, 19vh);
+            height: clamp(18vw, 19vh, 19vh);
             object-fit: cover;
             border-radius: 10px;
             }
@@ -442,7 +467,7 @@
             }
 
             .akira-button {
-                font-size: 0.9rem;
+                font-size: clamp(0.9rem, 2vh, 2vh);
                 font-family: 'Montserrat', sans-serif;
                 font-weight: 1000;
                 padding: 10px 24px;
@@ -454,24 +479,37 @@
             }  
 
 
+            .dropdown {
+                right: 20px;
+            }
 
             /* Style des liens du menu */
             .dropdown-content a {
                 font-size: 0.6rem;
                 font-family: 'Montserrat', sans-serif;
                 font-weight: 1000;
-                padding: 7px 7px;
+                padding: 7px 6px;
             }
             .dropdown-button {
-                font-size: 1rem;
-                padding: 8px 16px;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 900;
+                letter-spacing: 1px;
+                font-size: 0.9rem;
+                padding: 10px 16px;
+            }
+
+            /* Icône Instagram */
+            .instagram-icon {
+                width: 18px;
+                height: 18px;
+                transition: transform 0.3s ease-in-out;
             }
 
             /* Style du bouton Instagram */
             .instagram-button {
                 right: 120px;
-                width: 25px;
-                height: 25px;
+                width: 21px;
+                height: 21px;
             }
         }
 
@@ -489,19 +527,19 @@
         <!-- Section des images -->
         <div class="images">
             <figure class="person-figure">
-                <img src="assets/moi.JPG" alt="Personne 1" class="person-photo">
+                <img src="assets/logo.png" alt="Personne 1" class="person-photo">
                 <figcaption>ANAÏS LOPES</figcaption>
                 <figcaption>VICE-PRÉSIDENTE</figcaption>
             </figure>
             <figure class="person-figure">
-                <img src="assets/moi.JPG" alt="Personne 2" class="person-photo">
+                <img src="assets/logo.png" alt="Personne 2" class="person-photo">
                 <div class="figcaption2">
                     ARTHUS ROBIN<br>
                     PRÉSIDENT
                 </div>
             </figure>
             <figure class="person-figure">
-                <img src="assets/moi.JPG" alt="Personne 3" class="person-photo">
+                <img src="assets/logo.png" alt="Personne 3" class="person-photo">
                 <figcaption>MARTIN MARICOT</figcaption>
                 <figcaption>VICE-PRÉSIDENT</figcaption>
             </figure>
@@ -531,7 +569,7 @@
         <div class="dropdown">
             <button class="dropdown-button" onclick="toggleMenu()">Menu</button>
             <div class="dropdown-content">
-                <a href="index.html">ACCUEIL</a>
+                <a href="prog.html">SOMMAIRE</a>
                 <a href="programme.html">PROGRAMME</a>
                 <a href="classement.html">CLASSEMENT</a>
             </div>
