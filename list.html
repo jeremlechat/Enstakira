@@ -17,7 +17,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: url('assets/list.jpeg') no-repeat center center/cover;
+            background: url('assets/programme.jpeg') no-repeat center center/cover;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -26,12 +26,15 @@
 
         /* Effet de flou sur le fond */
         .background-blur {
-            position: fixed;
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            backdrop-filter: blur(3px);
+            min-height: 100vh;
+            background-image: url('assets/programme.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             z-index: -1;
         }
 
@@ -68,7 +71,8 @@
             font-family: 'Arial Black', sans-serif;
             letter-spacing: 1px;
             font-size: 1.5rem;
-            color: #ffffff;
+            color: #ff0000;
+            text-shadow: 1px 1px 0.2px rgba(0, 0, 0, 1);
             margin-top: 8px;
         }
 
@@ -78,6 +82,7 @@
             letter-spacing: 1px;
             font-size: 1.5rem;
             color: #000000;
+            text-shadow: 1px 1px 0.2px rgba(0, 0, 0, 1);
             margin-top: 8px;
         }
 
@@ -302,9 +307,8 @@
 
         /* Sur les écrans très petits (smartphones en mode portrait) */
         @media (max-width: 640px) {
-            html, body {
-                height: 130vh; /* Force à remplir la hauteur de l'écran */
-                background-position: 62% 20% !important;
+            .background-blur{                
+            background-position: 80% center !important;
                 
 
             }
@@ -312,14 +316,14 @@
                         .images {
                 display: flex;
                 justify-content: center; /* Centrer les éléments horizontalement */
-                gap: 5vw; /* Espacement uniforme entre les figures */
+                gap: 4vw; /* Espacement uniforme entre les figures */
                 flex-wrap: wrap; /* Permettre le retour à la ligne si besoin */
             }
 
             .person-figure {
                 text-align: center;
                 margin: 0;
-                margin-top: -380px;
+                margin-top: -150px;
                 padding: 0;
                 display: flex;
                 flex-direction: column; /* Image au-dessus du texte */
@@ -327,8 +331,8 @@
             }
 
             .person-photo {
-                width: 30vw;
-                height: 30vw;
+                width: 29vw;
+                height: 29vw;
                 object-fit: cover; /* Assurer une bonne proportion de l'image */
             }
 
@@ -341,11 +345,12 @@
 
 
             figcaption {
-            font-size: 0.5rem;
+            font-size: clamp(0.6rem, 0.6rem, 0.8vw);
             font-family: 'Montserrat', sans-serif;
-            font-weight: 1000;
+            font-weight:900;
             letter-spacing: 1px;
-            color: #ffffff;
+            color: #ff0000;
+            text-shadow: 1px 1px 0.2px rgba(0, 0, 0, 1);
             margin-top: 8px;
             }
 
@@ -355,12 +360,13 @@
             font-weight: 1000;
             letter-spacing: 1px;
             color: #000000;
+            text-shadow: 1px 1px 0.2px rgba(0, 0, 0, 1);
             margin-top: 8px;
             }
 
 
             .akira-button {
-                font-size: 0.9rem;
+                font-size: clamp(0.9rem, 0.9rem, 1.2vw);
                 font-family: 'Montserrat', sans-serif;
                 font-weight: 1000;
                 letter-spacing: 1px;
@@ -368,7 +374,7 @@
 
             }  
             .buttons {
-                margin-top: -200px;
+                margin-top: -4vw;
             }
             .button-row { 
                 gap:1px;
@@ -449,20 +455,22 @@
             figcaption {
             position: relative;
             left: 10px;
-            font-size: 0.5rem;
+            font-size: 1rem;
             font-family: 'Montserrat', sans-serif;
             font-weight: 1000;
             letter-spacing: 2px;
-            color: #ffffff;
+            color: #ff0000;
+            text-shadow: 1px 1px 0.2px rgba(0, 0, 0, 1);
             margin-top: 8px;
             }
 
             .figcaption2 {
-            font-size: 0.8rem;
+            font-size: 1.3rem;
             font-family: 'Montserrat', sans-serif;
             font-weight: 1000;
             letter-spacing: 1px;
             color: #000000;
+            text-shadow: 1px 1px 0.2px rgba(0, 0, 0, 1);
             margin-top: 8px;
             }
 
