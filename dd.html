@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carte Animée</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
+    <title>PRESQUE</title>
     <style>
         /* Style du corps */
         body {
@@ -13,17 +15,24 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: url('assets/builds.jpeg') no-repeat center center/cover;
+            background: url('assets/programme.jpeg') no-repeat center center/cover;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            overflow:auto;
         }
 
         /* Effet de flou sur le fond */
         .background-blur {
-            position: fixed;
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            backdrop-filter: blur(1px);
+            min-height: 100vh;
+            background-image: url('assets/programme.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             z-index: -1;
         }
 
@@ -34,26 +43,63 @@
 
         /* Style de la carte */
         .card {
-        width: 70vw;  /* 80% de la largeur de la fenêtre */
-        height: 70vh; /* 70% de la hauteur de la fenêtre */
-        position: relative;
-        transform-style: preserve-3d;
-        transition: transform 0.6s;
-        cursor: pointer;
-        background-color: black;
-        color: red;
-        font-family: 'Arial Black', sans-serif;
-        padding: 12px 24px;
-        border: 3px solid red;
-        border-radius: 4px;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
-    }
+            width: 70vw;  /* 80% de la largeur de la fenêtre */
+            height: 70vh; /* 70% de la hauteur de la fenêtre */
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+            cursor: pointer;
+            background-color: black;
+            color: red;
+            font-family: 'Arial Black', sans-serif;
+            padding: 12px 24px;
+            border: 3px solid red;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+
+        }
+
+        /* Section des images */
+        .images {
+            display: flex;
+            justify-content: center;
+            gap: 8px; /* Réduit l'espacement */
+            max-width: 90%; /* Empêche l'étirement sur toute la largeur */
+            flex-wrap: wrap; /* Permet aux images de passer à la ligne si nécessaire */
+            margin:0;
+        }
+
+        /* Conteneur de l'image et de la description */
+        .person-figure {
+            text-align: center;
+            max-width: 13vw; /* S'assure que chaque figure ne dépasse pas la taille de l'image */
+        }
+
+        /* Style des images */
+        .person-photo {
+            width: 175px;
+            max-width: 23vh;
+            height:175px; /* L'image prend toute la largeur de son conteneur */
+            max-height: 23vh;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* Style de la description */
+        figcaption {
+            font-size: 0.5rem;
+            font-family: 'Arial Black', sans-serif;
+            letter-spacing: 1px;
+            font-size: 0.5rem;
+            color: #ffffff;
+            margin-top: 8px;
+        }
 
 
         /* Faces de la carte */
@@ -74,67 +120,60 @@
         /* Face avant */
         .card .front {
             background: black;
-            color: rgb(255, 0, 0);
             font-weight: bold;
         }
 
-        /* Face arrière */
-        .card .back {
-            background: #000000;
-            color: rgb(255, 0, 0);
-            transform: rotateX(180deg);
+        .front h1{
+            margin-top: 5vh;
+            color: white;
+            font-size: 5vh;
         }
 
+        .card.flipped .front {
+            visibility: hidden;
+}
+
+
+        /* Face arrière */
+        .card .back {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centre verticalement */
+            align-items: center; /* Centre horizontalement */
+            backface-visibility: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background: black;
+            color: rgb(170, 164, 164);
+            font-weight: bold;
+            transform: rotateX(180deg);
+            text-align: left; /* Centre le texte à l'intérieur */
+        }
         /* Animation de rotation */
         .card.flipped {
             transform: rotateX(180deg);
         }
 
-        .container {
-            height: 90%;
-            width: 90%;
+        .back h1 {
+            margin: 0;            
         }
 
         .back ul {
-            width: 90%;
-            text-align: left;  /* Alignement du texte à gauche */
-            padding-left: 20px; /* Augmente l'espace à gauche */
-        }
-        .back ul li {
-            margin-bottom: 20px; /* Augmente l'espace entre chaque élément */
+            width:80%;
+    padding-left: 0; /* Supprime l'espace inutile */
+    font-size: clamp(2.3vh, 2.3vh, 0.9rem);
+    list-style-position: inside; /* Assure que les puces restent bien alignées */
+}
+
+        .title {
+            display: block;
+            width: 70%; /* Ajuste la taille de l'image (tu peux tester 40%, 30%, etc.) */
+            transform: scale(0.7); /* Réduction supplémentaire si nécessaire */
+            margin: 0 auto; /* Centre horizontalement */
         }
 
-                /* Section des images */
-                .images {
-            display: flex;
-            justify-content: center;
-            gap: 10px; /* Réduit l'espacement */
-            max-width: 90%; /* Empêche l'étirement sur toute la largeur */
-            margin-bottom: 30px;
-            flex-wrap: wrap; /* Permet aux images de passer à la ligne si nécessaire */
-        }
-
-        /* Conteneur de l'image et de la description */
-        .person-figure {
-            text-align: center;
-            max-width: 13vw; /* S'assure que chaque figure ne dépasse pas la taille de l'image */
-        }
-
-        /* Style des images */
-        .person-photo {
-            width: 100%; /* L'image prend toute la largeur de son conteneur */
-            object-fit: cover;
-            border-radius: 10px;
-        }
-
-        /* Style de la description */
-        figcaption {
-            font-family: 'Arial Black', sans-serif;
-            letter-spacing: 1px;
-            font-size: 0.5rem;
-            color: #ffffff;
-            margin-top: 8px;
-        }
         /* Style général du menu */
         .dropdown {
             position: fixed; /* Fixe le menu en haut à droite */
@@ -256,6 +295,8 @@
             opacity: 0.4;
         }
 
+        
+
         /* Style du bouton Instagram */
         .instagram-button {
             position: fixed;
@@ -294,17 +335,19 @@
         }
 
 
+
         /* Sur les écrans très petits (smartphones en mode portrait) */
         @media (max-width: 640px) {
             html, body {
-        overflow: hidden; /* Empêche le scroll */
+                background-position: 62% center !important;
+
         height: 100vh; /* Force à remplir la hauteur de l'écran */
     }
         .images {
             display: flex;
             justify-content: center;
             flex-wrap: wrap; /* Permet aux images de passer à la ligne si l'écran est trop petit */
-            gap: 20px; /* Espacement uniforme entre chaque figure */
+            gap: 0vw; /* Espacement uniforme entre chaque figure */
         }
 
         .person-figure {
@@ -316,7 +359,9 @@
 
         .person-photo {
             width: 25vw;
-            height: 20vw;
+            max-width: 18vh;
+            height: 25vw;
+            max-height: 18vh;
             object-fit: cover;
             border-radius: 10px;
         }
@@ -332,37 +377,60 @@
 
         .card .front, .card .back {
             font-size: 0.6rem;
+            backface-visibility: hidden;
+
             font-family: 'Montserrat', sans-serif;
             font-weight: 1000;
             letter-spacing: 1px;
         }
 
+        
         .back h1 {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
+            margin-left: 20px;
+
         }
         .front h1 {
-            font-size: 1.3rem;
+            font-size: 5vh;
+        }
+
+        .back ul{
+            font-size: 0.7rem;
         }
 
 
-        /* Style des liens du menu */
-        .dropdown-content a {
-            font-size: 0.6rem;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 1000;
-            padding: 7px 7px;
-        }
-        .dropdown-button {
-            font-size: 1rem;
-            padding: 8px 16px;
-        }
+        .dropdown {
+                right: 20px;
+            }
 
-        /* Style du bouton Instagram */
-        .instagram-button {
-            right: 120px;
-            width: 25px;
-            height: 25px;
-        }
+            /* Style des liens du menu */
+            .dropdown-content a {
+                font-size: 0.6rem;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 1000;
+                padding: 7px 6px;
+            }
+            .dropdown-button {
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 900;
+                letter-spacing: 1px;
+                font-size: 0.9rem;
+                padding: 10px 16px;
+            }
+
+            /* Icône Instagram */
+            .instagram-icon {
+                width: 18px;
+                height: 18px;
+                transition: transform 0.3s ease-in-out;
+            }
+
+            /* Style du bouton Instagram */
+            .instagram-button {
+                right: 120px;
+                width: 21px;
+                height: 21px;
+            }
 
         }
 
@@ -377,7 +445,8 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap; /* Permet aux images de passer à la ligne si l'écran est trop petit */
-            gap: 10px; /* Espacement uniforme entre chaque figure */
+            gap: 0vw; /* Espacement uniforme entre chaque figure */
+            margin-top: 10px;;
         }
 
         .person-figure {
@@ -388,14 +457,14 @@
         }
 
         .person-photo {
-            width: 10vw;
-            height: 10vw;
+            width: 11vw;
+            height: 11vw;
             object-fit: cover;
             border-radius: 10px;
         }
 
         figcaption {
-            font-size: 0.6rem;
+            font-size: 0.5rem;
             font-family: 'Montserrat', sans-serif;
             font-weight: 1000;
             letter-spacing: 1px;
@@ -404,55 +473,74 @@
         }
 
         .card .front, .card .back {
-            font-size: 0.6rem;
             font-family: 'Montserrat', sans-serif;
             font-weight: 1000;
             letter-spacing: 1px;
         }
 
         .back h1 {
-            font-size: 1.3rem;
+            font-size: clamp(1.3rem,1.3rem,5vh);
         }
         .front h1 {
-            font-size: 1.3rem;
+            margin-bottom: -30px;
+            font-size: 5vh;
         }
 
 
-        /* Style des liens du menu */
-        .dropdown-content a {
-            font-size: 0.6rem;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 1000;
-            padding: 7px 7px;
-        }
-        .dropdown-button {
-            font-size: 1rem;
-            padding: 8px 16px;
+        .dropdown {
+                right: 20px;
+            }
+
+            /* Style des liens du menu */
+            .dropdown-content a {
+                font-size: 0.6rem;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 1000;
+                padding: 7px 6px;
+            }
+            .dropdown-button {
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 900;
+                letter-spacing: 1px;
+                font-size: 0.9rem;
+                padding: 10px 16px;
+            }
+
+            /* Icône Instagram */
+            .instagram-icon {
+                width: 18px;
+                height: 18px;
+                transition: transform 0.3s ease-in-out;
+            }
+
+            /* Style du bouton Instagram */
+            .instagram-button {
+                right: 120px;
+                width: 21px;
+                height: 21px;
+            }
+
         }
 
-        /* Style du bouton Instagram */
-        .instagram-button {
-            right: 120px;
-            width: 25px;
-            height: 25px;
-        }
-
-        }
-
+        .tact-logo {
+  position: absolute;
+  bottom: 10px; /* Positionner à 10px du bas de la carte */
+  right: 10px; /* Positionner à 10px de la droite de la carte */
+  width: 5vh; /* Ajuster la taille du logo */
+}
 
     </style>
 </head>
-<body>
+<body class="bg-black text-white">
     <a href="https://www.instagram.com/ensta4pattes?igsh=c2Zwa3NkMGtuamhh&utm_source=qr" target="_blank" class="instagram-button">
         <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="instagram-icon">
     </a>
 
     <div class="background-blur"></div>
-    <div class="background-blur"></div>
     <div class="dropdown">
         <button class="dropdown-button" onclick="toggleMenu()">Menu</button>
         <div class="dropdown-content">
-            <a href="index.html">ACCUEIL</a>
+            <a href="prog.html">SOMMAIRE</a>
             <a href="programme.html">PROGRAMME</a>
             <a href="classement.html">CLASSEMENT</a>
             <a href="list.html">NOTRE LISTE</a>
@@ -461,21 +549,24 @@
     <div class="card-container">
         <div class="card" onclick="this.classList.toggle('flipped')">
             <div class="front">
+                <img src="assets/tact1.png" alt="Logo Tactile" class="tact-logo">
+
                 <h1>DD</h1>
                 <div class="images">
                     <figure class="person-figure">
-                        <img src="assets/moi.JPG" alt="Personne 1" class="person-photo">
-                        <figcaption>MAHAUT</figcaption>
+                        <img src="assets/logo.png" alt="Personne 1" class="person-photo">
+                        <figcaption>MAËLLE</figcaption>
                     </figure>
                     <figure class="person-figure">
-                        <img src="assets/moi.JPG" alt="Personne 2" class="person-photo">
-                        <figcaption>MAËLLE</figcaption>
+                        <img src="assets/logo.png" alt="Personne 2" class="person-photo">
+                        <figcaption>MAHAUT</figcaption>
                     </figure>
                 </div>
             </div>
-        <div class="back">
-            <div class=""container>
-                    <h2>PROGRAMME DD</h2>
+            <div class="back">
+                <img src="assets/tact1.png" alt="Logo Tactile" class="tact-logo">
+
+                    <h1>PROGRAMME DD</h1>
                     <ul>
                         <li>Amélioration du panier de légumes avec des recettes associées.</li>
                         <li>Collaboration avec les composts de la ville de Brest.</li>
@@ -484,8 +575,6 @@
                         <li>Obligation d’un bilan carbone pour les campagnes.</li>
                     </ul>
             </div>
-            
-        </div>
         </div>
     </div>
     <script>
@@ -496,6 +585,7 @@
             menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
         }
     </script>
+    
 
 </body>
 </html>

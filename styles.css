@@ -10,6 +10,19 @@
     }
 }
 
+#touch-logo {
+    position: fixed; /* Fixe le logo par rapport à la fenêtre */
+    bottom: 20px; /* Positionne le logo à 20px du bas */
+    right: 20px; /* Positionne le logo à 20px du côté droit */
+    width: 50px; /* Ajuste la taille du logo si nécessaire */
+    height: auto; 
+    z-index: 10; /* Assure qu'il soit au-dessus des autres éléments */
+}
+
+
+
+
+
 /* Classe de transition fluide pour les boutons */
 .button-appear {
     animation: slideIn 0.6s ease-out forwards;

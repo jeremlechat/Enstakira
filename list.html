@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photos et Boutons Akira</title>
+    <title>Vous Chauffez!</title>
     <link rel="preload" href="assets/moi.JPG" as="image">
     <link rel="preload" href="assets/title.png" as="image">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
@@ -36,6 +36,7 @@
             background-position: center;
             background-repeat: no-repeat;
             z-index: -1;
+            filter: blur(4px);
         }
 
         /* Container principal */
@@ -67,7 +68,6 @@
 
         /* Style de la description */
         figcaption {
-            font-size: 1rem;
             font-family: 'Arial Black', sans-serif;
             letter-spacing: 1px;
             font-size: 1.5rem;
@@ -77,10 +77,9 @@
         }
 
         .figcaption2 {
-            font-size: 1rem;
             font-family: 'Arial Black', sans-serif;
             letter-spacing: 1px;
-            font-size: 1.5rem;
+            font-size: 2rem;
             color: #000000;
             text-shadow: 1px 1px 0.2px rgba(0, 0, 0, 1);
             margin-top: 8px;
@@ -316,7 +315,7 @@
                         .images {
                 display: flex;
                 justify-content: center; /* Centrer les éléments horizontalement */
-                gap: 4vw; /* Espacement uniforme entre les figures */
+                gap: 3vw; /* Espacement uniforme entre les figures */
                 flex-wrap: wrap; /* Permettre le retour à la ligne si besoin */
             }
 
@@ -331,8 +330,8 @@
             }
 
             .person-photo {
-                width: 29vw;
-                height: 29vw;
+                width: 28vw;
+                height: 28vw;
                 object-fit: cover; /* Assurer une bonne proportion de l'image */
             }
 
@@ -345,7 +344,7 @@
 
 
             figcaption {
-            font-size: clamp(0.6rem, 0.6rem, 0.8vw);
+            font-size: clamp(0.5rem, 0.5rem, 0.8vw);
             font-family: 'Montserrat', sans-serif;
             font-weight:900;
             letter-spacing: 1px;
@@ -370,7 +369,7 @@
                 font-family: 'Montserrat', sans-serif;
                 font-weight: 1000;
                 letter-spacing: 1px;
-                padding: 12px 20px;
+                padding: 12px 17px;
 
             }  
             .buttons {
@@ -427,55 +426,62 @@
             height: 120vh;
         }
 
-            .images img {
-            position: relative;
-            top: 20px;
-            left: 11px;
-            margin: 0;
-            margin-top:0vh;
-            padding: 0;
-            display: block;
-            max-width: 100%;
-            justify-content: center;
-            margin-bottom: 30px;
-            }
-
-             /* Conteneur de l'image et de la description */
-            .person-figure {
-                text-align: center;  /* Centrer la description sous l'image */
-                margin: 0;
-                padding: 0;
-            }
+            /* Centrer le conteneur principal des images */
+.images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4vw;
+    height: auto; /* Ajuste la hauteur automatiquement pour réduire l'espace */
+    width: 100vw;
+    margin-bottom: 20px; /* Réduit la marge en bas du conteneur */
+}
 
 
-            .person-photo {
-            width: clamp(18vw, 19vh, 19vh);
+/* Container des images et des légendes */
+.person-figure {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Image au-dessus du texte */
+    align-items: center; /* Centrer le contenu */
+}
+
+.person-photo {
+    width: clamp(18vw, 19vh, 19vh);
             height: clamp(18vw, 19vh, 19vh);
-            object-fit: cover;
-            border-radius: 10px;
-            }
+    object-fit: cover; /* Assurer une bonne proportion de l'image */
+}
 
-            figcaption {
-            position: relative;
-            left: 10px;
-            font-size: 1rem;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 1000;
-            letter-spacing: 2px;
-            color: #ff0000;
-            text-shadow: 1px 1px 0.2px rgba(0, 0, 0, 1);
-            margin-top: 8px;
-            }
+figcaption, .figcaption2 {
+    margin-top: 5px; /* Éviter le collage avec l'image */
+    font-size: 1rem;
+    font-weight: bold;
+}
 
-            .figcaption2 {
-            font-size: 1.3rem;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 1000;
-            letter-spacing: 1px;
-            color: #000000;
-            text-shadow: 1px 1px 0.2px rgba(0, 0, 0, 1);
-            margin-top: 8px;
-            }
+/* Style des légendes */
+figcaption {
+    font-size: clamp(0.6rem, 0.6rem, 0.8vw);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: #ff0000;
+    text-shadow: 1px 1px 0.2px rgba(0, 0, 0, 1);
+    margin-top: 8px;
+}
+
+.figcaption2 {
+    font-size: 0.8rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 1000;
+    letter-spacing: 1px;
+    color: #000000;
+    text-shadow: 1px 1px 0.2px rgba(0, 0, 0, 1);
+    margin-top: 8px;
+}
+
 
             .akira-button {
                 font-size: clamp(0.9rem, 2vh, 2vh);

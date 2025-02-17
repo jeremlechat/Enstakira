@@ -1,4 +1,5 @@
 let logoAnimated = false; // Variable pour vérifier si l'animation du logo a déjà eu lieu
+let touchLogo = document.getElementById('touch-logo'); // Récupère l'élément du logo tactile
 
 document.addEventListener('click', triggerEffect);
 document.addEventListener('keydown', triggerEffect);
@@ -11,8 +12,11 @@ function triggerEffect() {
     // Si l'animation du logo a déjà eu lieu, on ne la relance pas
     if (logoAnimated) return;
 
+    // Masquer le logo tactile avant l'animation
+    touchLogo.style.display = 'none'; // Cache le logo tactile
+
     // Appliquer l'effet de flou au fond
-    background.classList.add(   );
+    background.classList.add('filter', 'blur-lg'); // Applique un flou de taille 'lg' à l'arrière-plan
 
     // Appliquer l'animation de translation et agrandissement à l'image
     shinyImage.style.transform = `translateY(-${window.innerHeight * 0.3}px)`; // Décalage vertical
