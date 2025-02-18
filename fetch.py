@@ -1,3 +1,5 @@
+#! venv_3.12_Enstakira/bin/python
+
 import requests
 import csv
 import json
@@ -25,7 +27,7 @@ else:
 
 next(reader)
 for row in reader:
-    _, pseudo = row
+    _, pseudo, _ = row
     if pseudo not in existing_data["labels"]:
         existing_data["labels"].append(pseudo)
         existing_data["dataValues"].append(0)
