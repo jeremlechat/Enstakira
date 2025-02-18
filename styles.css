@@ -47,7 +47,7 @@
 
 
 .glowing-image {
-    filter: drop-shadow(0 0 150px rgb(255, 0, 0));
+    filter: drop-shadow(0 0 150px #3c0f50);
 }
 
 .image-appear {

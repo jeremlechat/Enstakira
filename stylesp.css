@@ -39,11 +39,11 @@
 /* Style des boutons façon Akira */
 .akira-button {
     background-color: black;
-    color: red;
+    color: #894fd0;
     font-family: 'Arial Black', sans-serif;
     font-size: 1.4rem;
     padding: 12px 24px;
-    border: 3px solid red;
+    border: 3px solid #8000ff;
     border-radius: 4px;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -55,10 +55,11 @@
 
 /* Comportement des boutons sur hover */
 .akira-button:hover {
-    background-color: red;
+    background-color: rgb(231, 58, 154);
     color: black;
     transform: scale(1.1);
-    box-shadow: 0 0 15px red;
+    border: 3px solid rgb(231, 58, 154);
+    box-shadow: 0 0 15px  rgb(231, 58, 154);
 }
 
 /* Effet glitch */
@@ -71,8 +72,8 @@
     height: 100%;
     background: repeating-linear-gradient(
         45deg,
-        rgba(255, 0, 0, 0.6),
-        rgba(255, 0, 0, 0.6) 10px,
+        rgb(231, 58, 154, 0.6),
+        rgb(231, 58, 154, 0.6) 10px,
         transparent 10px,
         transparent 20px
     );
