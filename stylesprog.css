@@ -28,7 +28,7 @@
     top: 0;
     bottom: 0;
     width: 2px;
-    background-color: rgb(255, 0, 0);
+    background-color: #8000ff;
     transform: translateX(0);
 }
 
@@ -50,14 +50,14 @@
     top: 30px; /* Déplace les points de 5px vers le bas */
     width: 15px;
     height: 15px;
-    background-color: rgb(255, 0, 0);
+    background-color: #8000ff;
     border-radius: 50%;
     z-index: 2;
 }
 
 /* Date à gauche de chaque point */
 .timeline-point .date {
-    color : red;
+    color: rgb(231, 58, 154);
     position: absolute;
     left: -120px; /* Décale la date sur la gauche */
     font-size: 16px;
@@ -75,7 +75,7 @@
     font-family: 'Arial Black', sans-serif;
     font-size: 1.1rem;
     padding: 12px 24px;
-    border: 3px solid red;
+    border: 3px solid #8000ff;
     border-radius: 4px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -105,11 +105,11 @@ ul li {
 .timeline-point .block {
     margin-left: 40px; /* Décale le contenu sur la droite pour qu'il soit aligné avec le point */
     background-color: black;
-    color: red;
+    color: #894fd0;
     font-family: 'Arial Black', sans-serif;
     font-size: 1.5rem;
     padding: 12px 24px;
-    border: 3px solid red;
+    border: 3px solid #8000ff;
     border-radius: 4px;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -121,10 +121,11 @@ ul li {
 
 /* Comportement des boutons sur hover */
 .timeline-point .block:hover {
-    background-color: red;
+    background-color: rgb(231, 58, 154);
     color: black;
     transform: scale(1.02);
-    box-shadow: 0 0 10px red;
+    border: 3px solid rgb(231, 58, 154);
+    box-shadow: 0 0 15px  rgb(231, 58, 154);
 }
 
 /* Effet glitch sur hover */
@@ -137,8 +138,8 @@ ul li {
     height: 100%;
     background: repeating-linear-gradient(
         45deg,
-        rgba(255, 0, 0, 0.6),
-        rgba(255, 0, 0, 0.6) 10px,
+        rgb(231, 58, 154, 0.6),
+        rgb(231, 58, 154, 0.6) 10px,
         transparent 10px,
         transparent 20px
     );
@@ -174,11 +175,11 @@ ul li {
         /* Style du bouton du menu */
         .dropdown-button {
             background-color: black;
-            color: red;
+            color: #894fd0;
             font-family: 'Arial Black', sans-serif;
             font-size: 1rem;
             padding: 10px 20px;
-            border: 3px solid red;
+            border: 3px solid #8000ff;
             border-radius: 4px;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -192,11 +193,11 @@ ul li {
 
         /* Comportement du bouton au survol */
         .dropdown-button:hover {
-            background-color: red;
+            background-color: rgb(231, 58, 154);
             color: black;
             transform: scale(1.1);
-            box-shadow: 0 0 15px red;
-        }
+            border: 3px solid rgb(231, 58, 154);
+            box-shadow: 0 0 15px  rgb(231, 58, 154);}
 
         /* Effet glitch sur le bouton */
         .dropdown-button::before {
@@ -208,8 +209,8 @@ ul li {
             height: 100%;
             background: repeating-linear-gradient(
                 45deg,
-                rgba(255, 0, 0, 0.6),
-                rgba(255, 0, 0, 0.6) 10px,
+                rgb(231, 58, 154, 0.6),
+                rgb(231, 58, 154, 0.6) 10px,
                 transparent 10px,
                 transparent 20px
             );
@@ -231,7 +232,7 @@ ul li {
             z-index: 1;
             border-radius: 4px;
             margin-top: 5px;
-            border: 3px solid red;
+            border: 3px solid #8000ff;
             width: auto;
             padding: 0; /* Enlève tout remplissage pour ajuster les éléments */
             text-align: center;
@@ -239,7 +240,7 @@ ul li {
 
         /* Style des liens du menu */
         .dropdown-content a {
-            color: red;
+            color: #894fd0;
             padding: 10px 10px;
             text-decoration: none;
             display: block;
@@ -254,11 +255,10 @@ ul li {
 
         /* Comportement des liens au survol */
         .dropdown-content a:hover {
-            background-color: red;
+            background-color: rgb(231, 58, 154);
             color: black;
             transform: scale(1.1);
-            box-shadow: 0 0 15px red;
-        }
+            box-shadow: 0 0 15px  rgb(231, 58, 154);}
 
         /* Effet glitch sur les liens du menu */
         .dropdown-content a::before {
@@ -270,8 +270,8 @@ ul li {
             height: 100%;
             background: repeating-linear-gradient(
                 45deg,
-                rgba(255, 0, 0, 0.6),
-                rgba(255, 0, 0, 0.6) 10px,
+                rgb(231, 58, 154, 0.6),
+                rgb(231, 58, 154, 0.6) 10px,
                 transparent 10px,
                 transparent 20px
             );
@@ -293,7 +293,7 @@ ul li {
             z-index: 1000;
             background-color: black;
             padding: 8px;
-            border: 3px solid red;
+            border: 3px solid #8000ff;
             border-radius: 50%;
             transition: all 0.3s ease-in-out;
             display: flex;
@@ -312,9 +312,10 @@ ul li {
 
         /* Effet hover */
         .instagram-button:hover {
-            background-color: red;
-            box-shadow: 0 0 15px red;
-            transform: scale(1.1);
+            background-color: rgb(231, 58, 154);
+            border: 3px solid rgb(231, 58, 154);
+            box-shadow: 0 0 15px  rgb(231, 58, 154);
+                    transform: scale(1.1);
         }
 
         .instagram-button:hover .instagram-icon {

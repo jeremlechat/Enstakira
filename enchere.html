@@ -50,11 +50,11 @@
             transition: transform 0.6s;
             cursor: pointer;
             background-color: black;
-            color: red;
+            color: #894fd0;
             font-family: 'Arial Black', sans-serif;
             font-size: clamp(2.5vh, 2.5vh, 1.4vw);
             padding: 12px 24px;
-            border: 3px solid red;
+            border: 3px solid #8000ff;
             border-radius: 4px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -62,7 +62,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+            box-shadow: 0 0 15px  rgb(231, 58, 154);
             opacity: 0.9; /* Réduit l'opacité de la carte (valeur entre 0 et 1) */
         }
 
@@ -106,8 +106,7 @@
 
         .alineas1{
             margin-left:5vw;
-            margin-bottom: 0;
-            margin-top: 4vw;
+            margin-top: 30vh;
         }
 
 
@@ -122,11 +121,11 @@
         /* Style du bouton du menu */
         .dropdown-button {
             background-color: black;
-            color: red;
+            color: #894fd0;
             font-family: 'Arial Black', sans-serif;
             font-size: 1rem;
             padding: 10px 20px;
-            border: 3px solid red;
+            border: 3px solid #8000ff;
             border-radius: 4px;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -140,11 +139,11 @@
 
         /* Comportement du bouton au survol */
         .dropdown-button:hover {
-            background-color: red;
+            background-color: rgb(231, 58, 154);
             color: black;
             transform: scale(1.1);
-            box-shadow: 0 0 15px red;
-        }
+            border: 3px solid rgb(231, 58, 154);
+            box-shadow: 0 0 15px  rgb(231, 58, 154);}
 
         /* Effet glitch sur le bouton */
         .dropdown-button::before {
@@ -156,8 +155,8 @@
             height: 100%;
             background: repeating-linear-gradient(
                 45deg,
-                rgba(255, 0, 0, 0.6),
-                rgba(255, 0, 0, 0.6) 10px,
+                rgb(231, 58, 154, 0.6),
+                rgb(231, 58, 154, 0.6) 10px,
                 transparent 10px,
                 transparent 20px
             );
@@ -179,7 +178,7 @@
             z-index: 1;
             border-radius: 4px;
             margin-top: 5px;
-            border: 3px solid red;
+            border: 3px solid #8000ff;
             width: auto;
             padding: 0; /* Enlève tout remplissage pour ajuster les éléments */
             text-align: center;
@@ -187,7 +186,7 @@
 
         /* Style des liens du menu */
         .dropdown-content a {
-            color: red;
+            color: #894fd0;
             padding: 10px 10px;
             text-decoration: none;
             display: block;
@@ -202,11 +201,10 @@
 
         /* Comportement des liens au survol */
         .dropdown-content a:hover {
-            background-color: red;
+            background-color: rgb(231, 58, 154);
             color: black;
             transform: scale(1.1);
-            box-shadow: 0 0 15px red;
-        }
+            box-shadow: 0 0 15px  rgb(231, 58, 154);}
 
         /* Effet glitch sur les liens du menu */
         .dropdown-content a::before {
@@ -218,8 +216,8 @@
             height: 100%;
             background: repeating-linear-gradient(
                 45deg,
-                rgba(255, 0, 0, 0.6),
-                rgba(255, 0, 0, 0.6) 10px,
+                rgb(231, 58, 154, 0.6),
+                rgb(231, 58, 154, 0.6) 10px,
                 transparent 10px,
                 transparent 20px
             );
@@ -240,7 +238,7 @@
             z-index: 1000;
             background-color: black;
             padding: 8px;
-            border: 3px solid red;
+            border: 3px solid #8000ff;
             border-radius: 50%;
             transition: all 0.3s ease-in-out;
             display: flex;
@@ -259,8 +257,9 @@
 
         /* Effet hover */
         .instagram-button:hover {
-            background-color: red;
-            box-shadow: 0 0 15px red;
+            background-color: rgb(231, 58, 154);
+    border: 3px solid rgb(231, 58, 154);
+    box-shadow: 0 0 15px  rgb(231, 58, 154);
             transform: scale(1.1);
         }
 
@@ -287,7 +286,7 @@
             }
 
             .alineas1 {
-                margin-top: 9vw;
+                margin-top: 20vh;
                 margin-left: 2vw;
             }
 
@@ -437,28 +436,15 @@
             <a href="programme.html">PROGRAMME</a>
             <a href="classement.html">CLASSEMENT</a>
             <a href="list.html">NOTRE LISTE</a>
+            <a href="index.html">INTRO</a>
         </div>
     </div>
 
     <div class="card-container">
         <div class="card">
             <div class="front">
-                <div class="alineas1"> à toi jeune ingénieur ! Tu es convié à notre activité folle de course </div>
-                <p>aux points : Au programme tu auras des activités disponibles sur tout le campus comme :</p>
-                <ul>
-                    <li>Cross-bar challenge</li>
-                    <li>Tournante</li>
-                    <li>Béret</li>
-                    <li>Spikeball</li>
-                    <li>Billard et baby</li>
-                    <li>Fléchettes</li>
-                    <li>Mario Kart</li>
-                    <li>Just Dance</li>
-                    <li>Et bien d’autres !</li>
-                </ul>
-                <div class="alineas">Mais ce n’est pas tout, on sait que jouer ou réfléchir peut être</div><p>fatiguant, tu auras accès à un stand pour te requinquer ! 
-                    Tu pourras compter sur tes membres de la liste ENST’Akira pour te faire vivre tes meilleurs moments sur place !
-                    On te distribuera une brochure avec l’emplacement des activités ainsi que leur apport en points, dans tous les cas tu es gagnant !</p></div>
+                <div class="alineas1"> C’est le moment de tout claquer, viens à notre matinée enchères </div><p> pour dépenser tous tes points et espérer gagner les meilleurs lots. en rigolant ?</p>
+                <p>Ça tombe bien notre activité brunch est pile ce qu’il te faut ! Viens manger et rigoler en regardant nos membres se mettre en scène lors de reproduction de jeux télévisés</p>
         </div>
     </div>
     <script>

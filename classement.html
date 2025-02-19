@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LE CLASSEMENT!s</title>
+    <title>LE CLASSEMENT!</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
 
     <style>
@@ -42,24 +42,6 @@
             padding: 20px;
         }
 
-        .image-container {
-            text-align: center;
-        }
-
-        .classement-image {
-            max-width: 40%;
-            height: auto;
-            filter: drop-shadow(0 0 15px rgb(255, 0, 0));
-        }
-
-        figcaption {
-            font-size: 4rem;
-            font-family: 'Arial Black', sans-serif;
-            letter-spacing: 2px;
-            color: #ff0000;
-            margin-top: 8px;
-        }
-
         .content-container {
             width: 100%;
             display: flex;
@@ -73,9 +55,9 @@
         /* Bloc des équipes ajusté pour être centré et ne pas déborder */
         .teams-list {
             background-color: rgba(0, 0, 0, 0.8);
-            color: red;
+            color: #894fd0;
             padding: 15px;
-            border: 3px solid red;
+            border: 3px solid #8000ff;
             width: 80%; /* Limité à 80% de la largeur */
             max-width: 600px; /* Largeur maximale pour éviter qu'il ne devienne trop large */
             height: 400px; /* Ajusté pour que ce soit plus bas que large */
@@ -102,7 +84,7 @@
         }
 
         .team-points {
-            color: red;
+            color: #894fd0;
             font-size: 0.8rem;
             margin-left: auto;
             margin-right: 10px;
@@ -118,11 +100,11 @@
 
         .sort-button {
             background-color: black;
-            color: red;
+            color: #894fd0;
             font-family: 'Arial Black', sans-serif;
             font-size: 1rem;
             padding: 10px 20px;
-            border: 3px solid red;
+            border: 3px solid #8000ff;
             border-radius: 4px;
             text-transform: uppercase;
             cursor: pointer;
@@ -133,10 +115,11 @@
 
         /* Effet de survol */
         .sort-button:hover {
-            background-color: red;
+            background-color: rgb(231, 58, 154);
             color: black;
             transform: scale(1.1);
-            box-shadow: 0 0 15px red;
+            border: 3px solid rgb(231, 58, 154);
+    box-shadow: 0 0 15px  rgb(231, 58, 154);
         }
 
         /* Effet glitch hachuré */
@@ -149,8 +132,8 @@
             height: 100%;
             background: repeating-linear-gradient(
                 45deg,
-                rgba(255, 0, 0, 0.6),
-                rgba(255, 0, 0, 0.6) 10px,
+                rgb(231, 58, 154, 0.6),
+        rgb(231, 58, 154, 0.6) 10px,
                 transparent 10px,
                 transparent 20px
             );
@@ -174,11 +157,11 @@
         /* Style du bouton du menu */
         .dropdown-button {
             background-color: black;
-            color: red;
+            color: #894fd0;
             font-family: 'Arial Black', sans-serif;
             font-size: 1rem;
             padding: 10px 20px;
-            border: 3px solid red;
+            border: 3px solid #8000ff;
             border-radius: 4px;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -192,11 +175,11 @@
 
         /* Comportement du bouton au survol */
         .dropdown-button:hover {
-            background-color: red;
+            background-color: rgb(231, 58, 154);
             color: black;
             transform: scale(1.1);
-            box-shadow: 0 0 15px red;
-        }
+            border: 3px solid rgb(231, 58, 154);
+            box-shadow: 0 0 15px  rgb(231, 58, 154);}
 
         /* Effet glitch sur le bouton */
         .dropdown-button::before {
@@ -208,8 +191,8 @@
             height: 100%;
             background: repeating-linear-gradient(
                 45deg,
-                rgba(255, 0, 0, 0.6),
-                rgba(255, 0, 0, 0.6) 10px,
+                rgb(231, 58, 154, 0.6),
+                rgb(231, 58, 154, 0.6) 10px,
                 transparent 10px,
                 transparent 20px
             );
@@ -231,7 +214,7 @@
             z-index: 1;
             border-radius: 4px;
             margin-top: 5px;
-            border: 3px solid red;
+            border: 3px solid #8000ff;
             width: auto;
             padding: 0; /* Enlève tout remplissage pour ajuster les éléments */
             text-align: center;
@@ -239,7 +222,7 @@
 
         /* Style des liens du menu */
         .dropdown-content a {
-            color: red;
+            color: #894fd0;
             padding: 10px 10px;
             text-decoration: none;
             display: block;
@@ -254,11 +237,10 @@
 
         /* Comportement des liens au survol */
         .dropdown-content a:hover {
-            background-color: red;
+            background-color: rgb(231, 58, 154);
             color: black;
             transform: scale(1.1);
-            box-shadow: 0 0 15px red;
-        }
+            box-shadow: 0 0 15px  rgb(231, 58, 154);}
 
         /* Effet glitch sur les liens du menu */
         .dropdown-content a::before {
@@ -270,8 +252,8 @@
             height: 100%;
             background: repeating-linear-gradient(
                 45deg,
-                rgba(255, 0, 0, 0.6),
-                rgba(255, 0, 0, 0.6) 10px,
+                rgb(231, 58, 154, 0.6),
+                rgb(231, 58, 154, 0.6) 10px,
                 transparent 10px,
                 transparent 20px
             );
@@ -290,10 +272,16 @@
             padding: 10px;
             font-size: 1rem;
             margin-bottom: 20px;
-            border: 3px solid red;
+            border: 3px solid #8000ff;
             border-radius: 4px;
             background-color: rgba(0, 0, 0, 0.8);
-            color: red;
+            color: #894fd0;
+        }
+
+        .search-bar:focus {
+            outline: none;
+            border-color: rgb(231, 58, 154);
+            box-shadow: 0 0 10px rgb(231, 58, 154);
         }
 
         /* Style du bouton Instagram */
@@ -304,7 +292,7 @@
             z-index: 1000;
             background-color: black;
             padding: 8px;
-            border: 3px solid red;
+            border: 3px solid #8000ff;
             border-radius: 50%;
             transition: all 0.3s ease-in-out;
             display: flex;
@@ -323,8 +311,9 @@
 
         /* Effet hover */
         .instagram-button:hover {
-            background-color: red;
-            box-shadow: 0 0 15px red;
+            background-color: rgb(231, 58, 154);
+    border: 3px solid rgb(231, 58, 154);
+    box-shadow: 0 0 15px  rgb(231, 58, 154);
             transform: scale(1.1);
         }
 
@@ -505,6 +494,8 @@
             <a href="prog.html">SOMMAIRE</a>
             <a href="programme.html">PROGRAMME</a>
             <a href="list.html">NOTRE LISTE</a>
+            <a href="index.html">INTRO</a>
+
         </div>
     </div>
     <div id="background"></div>
