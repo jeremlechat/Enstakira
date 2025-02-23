@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vous Chauffez!</title>
-    <link rel="preload" href="assets/moi.JPG" as="image">
-    <link rel="preload" href="assets/title.png" as="image">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
 
+    <title>PRESQUE</title>
     <style>
         /* Style du corps */
         body {
@@ -36,114 +34,144 @@
             background-position: center;
             background-repeat: no-repeat;
             z-index: -1;
-            filter: blur(4px);
         }
 
-        /* Container principal */
-        .container {
-            text-align: center;
-            margin-top: 50px;
+        /* Conteneur de la carte */
+        .card-container {
+            perspective: 1000px;
         }
+
+        /* Style de la carte */
+        .card {
+            width: 70vw;  /* 80% de la largeur de la fenêtre */
+            height: 70vh; /* 70% de la hauteur de la fenêtre */
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+            cursor: pointer;
+            background-color: black;
+            color: red;
+            font-family: 'Arial Black', sans-serif;
+            padding: 12px 24px;
+            border: 3px solid #8000ff;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 15px  rgb(231, 58, 154);}
 
         /* Section des images */
         .images {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            margin-bottom: 30px;
+            gap: 8px; /* Réduit l'espacement */
+            max-width: 90%; /* Empêche l'étirement sur toute la largeur */
+            flex-wrap: wrap; /* Permet aux images de passer à la ligne si nécessaire */
+            margin:0;
+            margin-top: -20px;
+
         }
 
         /* Conteneur de l'image et de la description */
         .person-figure {
-            text-align: center;  /* Centrer la description sous l'image */
+            text-align: center;
+            max-width: 13vw; /* S'assure que chaque figure ne dépasse pas la taille de l'image */
         }
 
         /* Style des images */
         .person-photo {
-            width: 200px;
-            height: 200px;
+            width: 175px;
+            max-width: 23vh;
+            height:175px; /* L'image prend toute la largeur de son conteneur */
+            max-height: 23vh;
             object-fit: cover;
             border-radius: 10px;
         }
 
         /* Style de la description */
         figcaption {
+            font-size: 0.5rem;
             font-family: 'Arial Black', sans-serif;
             letter-spacing: 1px;
-            font-size: 1.5rem;
-            color: rgb(231, 58, 154);
-            text-shadow: 1px 1px 0.2px rgba(0, 0, 0, 1);
-            margin-top: 8px;
-        }
-
-        .figcaption2 {
-            font-family: 'Arial Black', sans-serif;
-            letter-spacing: 1px;
-            font-size: 2rem;
-            color: #000000;
-            text-shadow: 1px 1px 0.2px rgba(0, 0, 0, 1);
+            font-size: 0.5rem;
+            color: #ffffff;
             margin-top: 8px;
         }
 
 
-        /* Section des boutons */
-        .buttons {
+        /* Faces de la carte */
+        .card .front, .card .back {
             display: flex;
             flex-direction: column;
-            align-items: center;
-        }
-
-        .button-row {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 15px;
-        }
-
-        /* Style des boutons façon Akira */
-        .akira-button {
-            background-color: black;
-            color: #894fd0;
-            font-family: 'Arial Black', sans-serif;
-            font-size: 1.5rem;
-            padding: 12px 24px;
-            border: 3px solid #8000ff;
-            border-radius: 4px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: all 0.3s ease-in-out;
-            position: relative; /* Ajouté pour le positionnement du pseudo-élément */
-        }
-
-        .akira-button:hover {
-            background-color: rgb(231, 58, 154);
-            color: black;
-            transform: scale(1.1);
-            border: 3px solid rgb(231, 58, 154);
-    box-shadow: 0 0 15px  rgb(231, 58, 154);
-        }
-
-        /* Effet glitch */
-        .akira-button::before {
-            content: '';
             position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: 100%;
-            background: repeating-linear-gradient(
-                45deg,
-                rgb(231, 58, 154, 0.6),
-        rgb(231, 58, 154, 0.6) 10px,
-                transparent 10px,
-                transparent 20px
-            );
-            opacity: 0;
-            transition: opacity 0.2s;
+            backface-visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        .akira-button:hover::before {
-            opacity: 0.4;
+        /* Face avant */
+        .card .front {
+            background: black;
+            font-weight: bold;
+        }
+
+        .front h1{
+            margin-top: 5vh;
+            color: white;
+            font-size: 5vh;
+        }
+
+        .card.flipped .front {
+            visibility: hidden;
+}
+
+
+        /* Face arrière */
+        .card .back {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centre verticalement */
+            align-items: center; /* Centre horizontalement */
+            backface-visibility: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background: black;
+            color: rgb(170, 164, 164);
+            font-weight: bold;
+            transform: rotateX(180deg);
+            text-align: left; /* Centre le texte à l'intérieur */
+        }
+        /* Animation de rotation */
+        .card.flipped {
+            transform: rotateX(180deg);
+        }
+
+        .back h1 {
+            margin: 0;            
+        }
+
+        .back ul {
+            width:80%;
+    padding-left: 0; /* Supprime l'espace inutile */
+    font-size: clamp(2.3vh, 2.3vh, 0.9rem);
+    list-style-position: inside; /* Assure que les puces restent bien alignées */
+}
+
+        .title {
+            display: block;
+            width: 70%; /* Ajuste la taille de l'image (tu peux tester 40%, 30%, etc.) */
+            transform: scale(0.7); /* Réduction supplémentaire si nécessaire */
+            margin: 0 auto; /* Centre horizontalement */
         }
 
         /* Style général du menu */
@@ -305,85 +333,71 @@
         }
 
 
+
         /* Sur les écrans très petits (smartphones en mode portrait) */
         @media (max-width: 640px) {
-            .background-blur{                
-            background-position: 80% center !important;
-                
+            html, body {
+                background-position: 62% center !important;
 
-            }
+        height: 100vh; /* Force à remplir la hauteur de l'écran */
+    }
+        .images {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; /* Permet aux images de passer à la ligne si l'écran est trop petit */
+            gap: 0vw; /* Espacement uniforme entre chaque figure */
+        }
 
-                        .images {
-                display: flex;
-                justify-content: center; /* Centrer les éléments horizontalement */
-                gap: 3vw; /* Espacement uniforme entre les figures */
-                flex-wrap: wrap; /* Permettre le retour à la ligne si besoin */
-            }
+        .person-figure {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centre l'image et la légende */
+            text-align: center;
+        }
 
-            .person-figure {
-                text-align: center;
-                margin: 0;
-                margin-top: 20px;
-                padding: 0;
-                display: flex;
-                flex-direction: column; /* Image au-dessus du texte */
-                align-items: center; /* Centrer le contenu */
-            }
+        .person-photo {
+            width: 25vw;
+            max-width: 18vh;
+            height: 25vw;
+            max-height: 18vh;
+            object-fit: cover;
+            border-radius: 10px;
+        }
 
-            .person-photo {
-                width: 28vw;
-                height: 28vw;
-                object-fit: cover; /* Assurer une bonne proportion de l'image */
-            }
-
-            figcaption, .figcaption2 {
-                margin-top: 5px; /* Éviter le collage avec l'image */
-                font-size: 1rem;
-                font-weight: bold;
-            }
-
-
-
-            figcaption {
-            font-size: clamp(0.5rem, 0.5rem, 0.8vw);
-            font-family: 'Montserrat', sans-serif;
-            font-weight:900;
-            letter-spacing: 1px;
-            color: rgb(231, 58, 154);
-            text-shadow: 1px 1px 0.2px rgba(0, 0, 0, 1);
-            margin-top: 8px;
-            }
-
-            .figcaption2 {
-            font-size: 0.8rem;
+        figcaption {
+            font-size: 0.6rem;
             font-family: 'Montserrat', sans-serif;
             font-weight: 1000;
             letter-spacing: 1px;
-            color: #000000;
-            text-shadow: 1px 1px 0.2px rgba(0, 0, 0, 1);
+            color: #ffffff;
             margin-top: 8px;
-            }
+        }
+
+        .card .front, .card .back {
+            font-size: 0.6rem;
+            backface-visibility: hidden;
+
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 1000;
+            letter-spacing: 1px;
+        }
+
+        
+        .back h1 {
+            font-size: 1.5rem;
+            margin-left: 20px;
+
+        }
+        .front h1 {
+            font-size: 5vh;
+        }
+
+        .back ul{
+            font-size: 0.7rem;
+        }
 
 
-            .akira-button {
-                font-size: clamp(0.9rem, 0.9rem, 1.2vw);
-                font-family: 'Montserrat', sans-serif;
-                font-weight: 1000;
-                letter-spacing: 1px;
-                padding: 12px 17px;
-
-            }  
-            .buttons {
-                margin-top: -2vw;
-            }
-            .button-row { 
-                gap:1px;
-                margin-bottom: 4px;
-
-            }  
-            
-
-            .dropdown {
+        .dropdown {
                 right: 20px;
             }
 
@@ -415,89 +429,63 @@
                 width: 21px;
                 height: 21px;
             }
+
         }
+
 
 
         /* Sur les smartphones en mode paysage et tablettes en mode portrait */
         @media (min-width: 641px) and (max-width: 1024px) {
             html, body {
-        height: 120vh; /* Force à remplir la hauteur de l'écran */
-    }   
-        ;.background-blur{
-            height: 120vh;
+        height: 100vh; /* Force à remplir la hauteur de l'écran */
+    }
+            .images {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; /* Permet aux images de passer à la ligne si l'écran est trop petit */
+            gap: 0vw; /* Espacement uniforme entre chaque figure */
+            margin-top: 10px;;
         }
 
-            /* Centrer le conteneur principal des images */
-.images {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 4vw;
-    height: auto; /* Ajuste la hauteur automatiquement pour réduire l'espace */
-    width: 100vw;
-    margin-bottom: 20px; /* Réduit la marge en bas du conteneur */
-}
+        .person-figure {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centre l'image et la légende */
+            text-align: center;
+        }
+
+        .person-photo {
+            width: 11vw;
+            height: 11vw;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        figcaption {
+            font-size: 0.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 1000;
+            letter-spacing: 1px;
+            color: #ffffff;
+            margin-top: 8px;
+        }
+
+        .card .front, .card .back {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 1000;
+            letter-spacing: 1px;
+        }
+
+        .back h1 {
+            font-size: clamp(1.3rem,1.3rem,5vh);
+        }
+        .front h1 {
+            margin-bottom: -30px;
+            font-size: 5vh;
+        }
 
 
-/* Container des images et des légendes */
-.person-figure {
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column; /* Image au-dessus du texte */
-    align-items: center; /* Centrer le contenu */
-}
-
-.person-photo {
-    width: clamp(18vw, 19vh, 19vh);
-            height: clamp(18vw, 19vh, 19vh);
-    object-fit: cover; /* Assurer une bonne proportion de l'image */
-}
-
-figcaption, .figcaption2 {
-    margin-top: 5px; /* Éviter le collage avec l'image */
-    font-size: 1rem;
-    font-weight: bold;
-}
-
-/* Style des légendes */
-figcaption {
-    font-size: clamp(0.6rem, 0.6rem, 0.8vw);
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 900;
-    letter-spacing: 1px;
-    color: rgb(231, 58, 154);
-    text-shadow: 1px 1px 0.2px rgba(0, 0, 0, 1);
-    margin-top: 8px;
-}
-
-.figcaption2 {
-    font-size: 0.8rem;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 1000;
-    letter-spacing: 1px;
-    color: #000000;
-    text-shadow: 1px 1px 0.2px rgba(0, 0, 0, 1);
-    margin-top: 8px;
-}
-
-
-            .akira-button {
-                font-size: clamp(0.9rem, 2vh, 2vh);
-                font-family: 'Montserrat', sans-serif;
-                font-weight: 1000;
-                padding: 10px 24px;
-
-            }  
-            .button-row {
-                gap:2px;
-                margin-bottom: 2px;
-            }  
-
-
-            .dropdown {
+        .dropdown {
                 right: 20px;
             }
 
@@ -529,74 +517,75 @@ figcaption {
                 width: 21px;
                 height: 21px;
             }
+
         }
 
+        .tact-logo {
+  position: absolute;
+  bottom: 10px; /* Positionner à 10px du bas de la carte */
+  right: 10px; /* Positionner à 10px de la droite de la carte */
+  width: 5vh; /* Ajuster la taille du logo */
+}
 
     </style>
 </head>
-<body>
+<body class="bg-black text-white">
     <a href="https://www.instagram.com/ensta4pattes?igsh=c2Zwa3NkMGtuamhh&utm_source=qr" target="_blank" class="instagram-button">
         <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="instagram-icon">
     </a>
 
     <div class="background-blur"></div>
+    <div class="dropdown">
+        <button class="dropdown-button" onclick="toggleMenu()">Menu</button>
+        <div class="dropdown-content">
+            <a href="prog.html">SOMMAIRE</a>
+            <a href="programme.html">PROGRAMME</a>
+            <a href="classement.html">CLASSEMENT</a>
+            <a href="list.html">NOTRE LISTE</a>
+            <a href="index.html">INTRO</a>
 
-    <div class="container">
-        <!-- Section des images -->
-        <div class="images">
-            <figure class="person-figure">
-                <img src="assets/logo.png" alt="Personne 1" class="person-photo">
-                <figcaption>ANAÏS LOPES</figcaption>
-                <figcaption>VICE-PRÉSIDENTE</figcaption>
-            </figure>
-            <figure class="person-figure">
-                <img src="assets/logo.png" alt="Personne 2" class="person-photo">
-                <div class="figcaption2">
-                    ARTHUS ROBIN<br>
-                    PRÉSIDENT
+        </div>
+    </div>
+    <div class="card-container">
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="front">
+                <img src="assets/tact1.png" alt="Logo Tactile" class="tact-logo">
+
+                <h1>INTERNATIONAUX</h1>
+                <div class="images">
+                    <figure class="person-figure">
+                        <img src="assets/logo.png" alt="Personne 2" class="person-photo">
+                        <figcaption>LEO</figcaption>
+                    </figure>
+                    <figure class="person-figure">
+                        <img src="assets/logo.png" alt="Personne 3" class="person-photo">
+                        <figcaption>THOMAS C</figcaption>
+                    </figure>
+                    <figure class="person-figure">
+                        <img src="assets/logo.png" alt="Personne 3" class="person-photo">
+                        <figcaption>NATHAN</figcaption>
+                    </figure>
                 </div>
-            </figure>
-            <figure class="person-figure">
-                <img src="assets/logo.png" alt="Personne 3" class="person-photo">
-                <figcaption>MARTIN MARICOT</figcaption>
-                <figcaption>VICE-PRÉSIDENT</figcaption>
-            </figure>
-        </div>
-        
-
-        <!-- Section des boutons -->
-        <div class="buttons">
-            <div class="button-row">
-                <button onclick="window.location.href='bureau.html'" class="akira-button">BUREAU</button>
-                <button onclick="window.location.href='bee.html'" class="akira-button">BEE</button>
-                <button onclick="window.location.href='com.html'" class="akira-button">COM</button>
-                <button onclick="window.location.href='dd.html'" class="akira-button">DD</button>
             </div>
-            <div class="button-row">
-                <button onclick="window.location.href='inte.html'" class="akira-button">INTÉ</button>
-                <button onclick="window.location.href='log.html'" class="akira-button">LOG</button>
-                <button onclick="window.location.href='secu.html'" class="akira-button">SÉCU</button>
-                <button onclick="window.location.href='fipa.html'" class="akira-button">FIPA</button>
-            </div>
-            <div class="button-row">
-                <button onclick="window.location.href='fusion.html'" class="akira-button">FUSION</button>
-                <button onclick="window.location.href='bda.html'" class="akira-button">BDA</button>
-                <button onclick="window.location.href='inter.html'" class="akira-button">INTER</button>
-            </div>
-        </div>
+            <div class="back">
+                <img src="assets/tact1.png" alt="Logo Tactile" class="tact-logo">
 
-        <div class="dropdown">
-            <button class="dropdown-button" onclick="toggleMenu()">Menu</button>
-            <div class="dropdown-content">
-                <a href="prog.html">SOMMAIRE</a>
-                <a href="programme.html">PROGRAMME</a>
-                <a href="classement.html">CLASSEMENT</a>
-                <a href="index.html">INTRO</a>
-
+                    <h1>PROGRAMME INTER</h1>
+                    <ul>
+                        <li>Développer les activités sans alcool et
+                            proposer des alternatives attractives pour
+                            ceux qui ne boivent pas</li>
+                            
+                        <li>Améliorer le système de parrainage (associer des personnalités
+                            intelligeamment)</li>
+                            
+                        <li>Amélioration du mois d'inté (nouvelles
+                            activités, diminuer la distance du WEI...)
+                        </li>
+                    </ul>
             </div>
         </div>
     </div>
-
     <script>
         // Fonction pour basculer l'affichage du menu au clic
         function toggleMenu() {
@@ -605,5 +594,7 @@ figcaption {
             menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
         }
     </script>
+    
+
 </body>
 </html>
