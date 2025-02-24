@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ET MAINTENANT ?</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            font-family: 'Arial Black', sans-serif;
+            flex-direction: column;
+            overflow: auto;
+        }
+
+        #background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('assets/programme.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: blur(1px);
+            z-index: -1;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            padding: 20px;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .search-bar {
+    width: 95%;
+    font-family: "Arial Black", sans-serif;
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    border: 3px solid #8000ff;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #894fd0;
+    text-align: center; /* Centrer le texte dans la barre */
+}
+
+        .search-bar:focus {
+            outline: none;
+            border-color: rgb(231, 58, 154);
+            box-shadow: 0 0 10px rgb(231, 58, 154);
+        }
+
+        .btn {
+            background-color: black;
+            color: #894fd0;
+            font-family: 'Arial Black', sans-serif;
+            font-size: 1rem;
+            padding: 10px 20px;
+            border: 3px solid #8000ff;
+            border-radius: 4px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            letter-spacing: 2px;
+            position: relative; /* Nécessaire pour l'effet ::before */
+        }
+
+        /* Effet de survol */
+        .btn:hover {
+            background-color: rgb(231, 58, 154);
+            color: black;
+            transform: scale(1.1);
+            border: 3px solid rgb(231, 58, 154);
+    box-shadow: 0 0 15px  rgb(231, 58, 154);
+        }
+
+        /* Effet glitch hachuré */
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                rgb(231, 58, 154, 0.6),
+        rgb(231, 58, 154, 0.6) 10px,
+                transparent 10px,
+                transparent 20px
+            );
+            opacity: 0; /* Invisible par défaut */
+            transition: opacity 0.2s;
+        }
+
+        /* Lorsque l'on survole le bouton, l'effet glitch devient visible */
+        .btn:hover::before {
+            opacity: 0.4;
+        }
+
+        .error {
+            color: rgb(231, 58, 154);
+            text-shadow: 1px 1px 0.2px rgba(0, 0, 0, 1);
+    font-size: 1rem;
+    display: none;
+    text-align: center; /* Centrer le message d'erreur */
+}
+
+        /* Style général du menu */
+        .dropdown {
+            position: fixed; /* Fixe le menu en haut à droite */
+            top: 10px; /* Décalage depuis le haut */
+            right: 10px; /* Décalage depuis la droite */
+            z-index: 1000; /* Assure que le menu reste au-dessus du contenu */
+        }
+
+        /* Style du bouton du menu */
+        .dropdown-button {
+            background-color: black;
+            color: #894fd0;
+            font-family: 'Arial Black', sans-serif;
+            font-size: 1rem;
+            padding: 10px 20px;
+            border: 3px solid #8000ff;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            z-index: 1;
+            width: auto;
+            white-space: nowrap; /* Empêche le texte de se couper */
+        }
+
+        /* Comportement du bouton au survol */
+        .dropdown-button:hover {
+            background-color: rgb(231, 58, 154);
+            color: black;
+            transform: scale(1.1);
+            border: 3px solid rgb(231, 58, 154);
+            box-shadow: 0 0 15px  rgb(231, 58, 154);}
+
+        /* Effet glitch sur le bouton */
+        .dropdown-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                rgb(231, 58, 154, 0.6),
+                rgb(231, 58, 154, 0.6) 10px,
+                transparent 10px,
+                transparent 20px
+            );
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        /* Lorsque l'on survole le bouton du menu, l'effet glitch devient visible */
+        .dropdown-button:hover::before {
+            opacity: 0.4;
+        }
+
+        /* Style du menu déroulant */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: black;
+            min-width: 100px; /* Fixe une largeur minimale */
+            z-index: 1;
+            border-radius: 4px;
+            margin-top: 5px;
+            border: 3px solid #8000ff;
+            width: auto;
+            padding: 0; /* Enlève tout remplissage pour ajuster les éléments */
+            text-align: center;
+        }
+
+        /* Style des liens du menu */
+        .dropdown-content a {
+            color: #894fd0;
+            padding: 10px 10px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.6rem;
+            font-family: 'Arial Black', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease-in-out;
+            white-space: nowrap;
+            position: relative; /* Nécessaire pour l'effet ::before */
+        }
+
+        /* Comportement des liens au survol */
+        .dropdown-content a:hover {
+            background-color: rgb(231, 58, 154);
+            color: black;
+            transform: scale(1.1);
+            box-shadow: 0 0 15px  rgb(231, 58, 154);}
+
+        /* Effet glitch sur les liens du menu */
+        .dropdown-content a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                rgb(231, 58, 154, 0.6),
+                rgb(231, 58, 154, 0.6) 10px,
+                transparent 10px,
+                transparent 20px
+            );
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        /* Lorsque l'on survole les liens du menu, l'effet glitch devient visible */
+        .dropdown-content a:hover::before {
+            opacity: 0.4;
+        }
+
+                /* Style du bouton Instagram */
+                .instagram-button {
+            position: fixed;
+            top: 10px;
+            right: 135px;
+            z-index: 1000;
+            background-color: black;
+            padding: 8px;
+            border: 3px solid #8000ff;
+            border-radius: 50%;
+            transition: all 0.3s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+        }
+
+        /* Icône Instagram */
+        .instagram-icon {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Effet hover */
+        .instagram-button:hover {
+            background-color: rgb(231, 58, 154);
+    border: 3px solid rgb(231, 58, 154);
+    box-shadow: 0 0 15px  rgb(231, 58, 154);
+            transform: scale(1.1);
+        }
+
+        .instagram-button:hover .instagram-icon {
+            filter: invert(0%);
+            transform: rotate(10deg);
+        }
+
+
+
+        /* Sur les écrans très petits (smartphones en mode portrait) */
+        @media (max-width: 640px) {
+            html, body {
+                background-position: 62% center !important;
+
+        height: 100vh; /* Force à remplir la hauteur de l'écran */
+    }
+
+        .dropdown {
+                right: 20px;
+            }
+
+            /* Style des liens du menu */
+            .dropdown-content a {
+                font-size: 0.6rem;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 1000;
+                padding: 7px 6px;
+            }
+            .dropdown-button {
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 900;
+                letter-spacing: 1px;
+                font-size: 0.9rem;
+                padding: 10px 16px;
+            }
+
+            /* Icône Instagram */
+            .instagram-icon {
+                width: 18px;
+                height: 18px;
+                transition: transform 0.3s ease-in-out;
+            }
+
+            /* Style du bouton Instagram */
+            .instagram-button {
+                right: 120px;
+                width: 21px;
+                height: 21px;
+            }
+
+        }
+
+
+
+        /* Sur les smartphones en mode paysage et tablettes en mode portrait */
+        @media (min-width: 641px) and (max-width: 1024px) {
+            html, body {
+        height: 100vh; /* Force à remplir la hauteur de l'écran */
+    }
+
+        .dropdown {
+                right: 20px;
+            }
+
+            /* Style des liens du menu */
+            .dropdown-content a {
+                font-size: 0.6rem;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 1000;
+                padding: 7px 6px;
+            }
+            .dropdown-button {
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 900;
+                letter-spacing: 1px;
+                font-size: 0.9rem;
+                padding: 10px 16px;
+            }
+
+            /* Icône Instagram */
+            .instagram-icon {
+                width: 18px;
+                height: 18px;
+                transition: transform 0.3s ease-in-out;
+            }
+
+            /* Style du bouton Instagram */
+            .instagram-button {
+                right: 120px;
+                width: 21px;
+                height: 21px;
+            }
+
+        }
+
+
+        .block-rules {
+            margin-top: 30px;
+            margin-bottom: 30px;
+            margin-left: 40px; /* Décale le contenu sur la droite pour qu'il soit aligné avec le point */
+            background-color: black;
+            color: rgb(170, 164, 164);
+            font-family: 'Arial Black', sans-serif;
+            text-align: center;
+            font-size: 1.1rem;
+            padding: 12px 24px;
+            border: 3px solid #8000ff;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            z-index: 1; /* Pour s'assurer que le bouton est devant */
+            margin-bottom: 10px; /* Espacement entre les boutons */
+        }
+
+        .alineas {
+            margin-left: 20px; /* Ajuste cette valeur selon le besoin */
+        }
+
+        ul {
+            list-style-type: disc; /* Définit les puces comme des cercles */
+            margin-left: 20px; /* Décale légèrement la liste vers la droite */
+            padding-left: 20px; /* Espace entre les puces et le texte */
+        }
+
+        /* Optionnel : personnalisation des puces (si tu veux changer le style) */
+        ul li {
+            font-size: 1rem; /* Ajuste la taille de la police */
+            margin-bottom: 5px; /* Espacement entre les éléments de la liste */
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: rgb(231, 58, 154);
+            text-shadow: 1px 1px 0.5px rgba(0, 0, 0, 1);
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="background"></div>
+<a href="https://www.instagram.com/ensta4pattes?igsh=c2Zwa3NkMGtuamhh&utm_source=qr" target="_blank" class="instagram-button">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="instagram-icon">
+</a>
+
+<div class="dropdown">
+    <button class="dropdown-button" onclick="toggleMenu()">Menu</button>
+    <div class="dropdown-content">
+        <a href="prog.html">SOMMAIRE</a>
+        <a href="programme.html">PROGRAMME</a>
+        <a href="classement.html">CLASSEMENT</a>
+        <a href="list.html">NOTRE LISTE</a>
+        <a href="index.html">INTRO</a>
+
+    </div>
+</div>
+
+<div class="container">
+    <div class="block-rules">
+        <p class="alineas"><strong>Venez et entrez dans la compétition pour obtenir des yensta !</strong></p>
+        <br>
+        <p>PS: N'oubliez pas de vous inscrire (nom + prénom + n'importe quel mail) pour qu'on est une trace de votre passage.
+        </p><br>
+        <p>Des bisous !</p>
+    </div>
+    <button onclick="window.location.href='https://gd.games/games/ef8b5991-5db1-4ae2-9bd0-f3123716afce'" class="btn">Le lien du jeux</button>
+</div>
+
+<script>
+    const a0_0xc95e6e=a0_0x20e1;function a0_0x20e1(_0x43ddc8,_0x50b069){const _0x22ac85=a0_0x22ac();return a0_0x20e1=function(_0x20e148,_0x8ec0fc){_0x20e148=_0x20e148-0x14b;let _0xc6fa26=_0x22ac85[_0x20e148];return _0xc6fa26;},a0_0x20e1(_0x43ddc8,_0x50b069);}(function(_0x4baeea,_0x2d803e){const _0x4c5e23=a0_0x20e1,_0x167ec7=_0x4baeea();while(!![]){try{const _0x58b4b2=-parseInt(_0x4c5e23(0x151))/0x1*(parseInt(_0x4c5e23(0x177))/0x2)+parseInt(_0x4c5e23(0x152))/0x3*(-parseInt(_0x4c5e23(0x15a))/0x4)+parseInt(_0x4c5e23(0x170))/0x5+parseInt(_0x4c5e23(0x15e))/0x6*(-parseInt(_0x4c5e23(0x14f))/0x7)+parseInt(_0x4c5e23(0x156))/0x8*(-parseInt(_0x4c5e23(0x161))/0x9)+parseInt(_0x4c5e23(0x160))/0xa*(parseInt(_0x4c5e23(0x167))/0xb)+parseInt(_0x4c5e23(0x154))/0xc*(parseInt(_0x4c5e23(0x162))/0xd);if(_0x58b4b2===_0x2d803e)break;else _0x167ec7['push'](_0x167ec7['shift']());}catch(_0x199681){_0x167ec7['push'](_0x167ec7['shift']());}}}(a0_0x22ac,0xd9a55));function checkPassword(){const _0x218be7=a0_0x20e1,_0x46f7ff=document['getElementById']('password')['value'],_0x52fe11=_0x218be7(0x166);crypto['subtle'][_0x218be7(0x14c)](_0x218be7(0x155),new TextEncoder()[_0x218be7(0x16d)](_0x46f7ff))[_0x218be7(0x176)](_0x180237=>{const _0xfe51ba=_0x218be7,_0x6d3ac6=Array[_0xfe51ba(0x175)](new Uint8Array(_0x180237)),_0x1be32d=_0x6d3ac6[_0xfe51ba(0x153)](_0x34fdd2=>_0x34fdd2[_0xfe51ba(0x15d)](0x10)[_0xfe51ba(0x16b)](0x2,'0'))['join']('');_0x1be32d===_0x52fe11?window[_0xfe51ba(0x165)]['href']=_0xfe51ba(0x150):document[_0xfe51ba(0x168)]('errorMessage')[_0xfe51ba(0x15b)][_0xfe51ba(0x173)]=_0xfe51ba(0x14e);});}document['getElementById'](a0_0xc95e6e(0x16c))[a0_0xc95e6e(0x171)](a0_0xc95e6e(0x163),function(_0xec7b60){const _0x472342=a0_0xc95e6e;_0xec7b60[_0x472342(0x159)]===_0x472342(0x169)&&checkPassword();}),document[a0_0xc95e6e(0x171)](a0_0xc95e6e(0x158),_0x28f47=>_0x28f47[a0_0xc95e6e(0x172)]()),document[a0_0xc95e6e(0x171)]('keydown',_0x4ef7cb=>{const _0x2ca3f5=a0_0xc95e6e;_0x4ef7cb[_0x2ca3f5(0x16a)]&&(_0x4ef7cb[_0x2ca3f5(0x159)]==='u'||_0x4ef7cb['key']==='s'||_0x4ef7cb[_0x2ca3f5(0x159)]==='i'||_0x4ef7cb['key']==='j')&&_0x4ef7cb[_0x2ca3f5(0x172)]();}),setInterval(()=>{const _0x11f709=a0_0xc95e6e;(window[_0x11f709(0x15f)]-window[_0x11f709(0x164)]>0xc8||window['outerWidth']-window[_0x11f709(0x14d)]>0xc8)&&(document[_0x11f709(0x16f)][_0x11f709(0x174)]=_0x11f709(0x15c));},0x3e8);function toggleMenu(){const _0x127d7c=a0_0xc95e6e,_0x489c94=document[_0x127d7c(0x157)](_0x127d7c(0x16e));_0x489c94[_0x127d7c(0x15b)][_0x127d7c(0x173)]=_0x489c94['style'][_0x127d7c(0x173)]===_0x127d7c(0x14e)?_0x127d7c(0x14b):'block';}function a0_0x22ac(){const _0x9c33f3=['92985hYsJhq','map','19200PjofEF','SHA-256','4722272CdtmEy','querySelector','contextmenu','key','164xEfniZ','style','<h1>🚨\x20Inspection\x20interdite\x20!\x20🚨</h1>','toString','49596nXUYri','outerHeight','2853280mBEwtV','9LfWOTq','8294NGYLCg','keydown','innerHeight','location','248dded2e18c1e159d40b14eec1474b9fa75ecac1ac7edd13dd60b9a62405d25','44nUUByR','getElementById','Enter','ctrlKey','padStart','password','encode','.dropdown-content','body','7523970mEEJYv','addEventListener','preventDefault','display','innerHTML','from','then','1624yaDVLO','none','digest','innerWidth','block','469fFlgai','https://forms.gle/nXr5ysF8piA6tbzT8','444LUWXqu'];a0_0x22ac=function(){return _0x9c33f3;};return a0_0x22ac();}
+</script>
+
+</body>
+</html>

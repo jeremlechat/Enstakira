@@ -71,28 +71,30 @@
             max-width: 90%; /* Empêche l'étirement sur toute la largeur */
             flex-wrap: wrap; /* Permet aux images de passer à la ligne si nécessaire */
             margin:0;
-            margin-top: -20px;
+            margin-top: -40px;
         }
 
-        /* Conteneur de l'image et de la description */
-        .person-figure {
+       /* Conteneur de l'image et de la description */
+       .person-figure {
             text-align: center;
             max-width: 13vw; /* S'assure que chaque figure ne dépasse pas la taille de l'image */
         }
 
         /* Style des images */
         .person-photo {
-            width: 175px;
-            max-width: 23vh;
-            height:175px; /* L'image prend toute la largeur de son conteneur */
-            max-height: 23vh;
+            width: 200px;
+            max-width: 27vh;
+            height:200px; /* L'image prend toute la largeur de son conteneur */
+            max-height: 27vh;
             object-fit: cover;
             border-radius: 10px;
+            margin-bottom: -20px;
         }
 
         /* Style de la description */
         figcaption {
             font-size: 0.5rem;
+            gap: 27vw;
             font-family: 'Arial Black', sans-serif;
             letter-spacing: 1px;
             font-size: 0.5rem;
@@ -340,6 +342,7 @@
         height: 100vh; /* Force à remplir la hauteur de l'écran */
     }
         .images {
+            margin-top: 10px;
             display: flex;
             justify-content: center;
             flex-wrap: wrap; /* Permet aux images de passer à la ligne si l'écran est trop petit */
@@ -390,7 +393,7 @@
             font-size: 5vh;
         }
 
-        .back ul{
+        .back ul {
             font-size: 0.7rem;
         }
 
@@ -438,6 +441,7 @@
         height: 100vh; /* Force à remplir la hauteur de l'écran */
     }
             .images {
+            margin-top: 20px;
             display: flex;
             justify-content: center;
             flex-wrap: wrap; /* Permet aux images de passer à la ligne si l'écran est trop petit */
@@ -475,10 +479,11 @@
         }
 
         .back h1 {
+            margin-bottom: 20px;
             font-size: clamp(1.3rem,1.3rem,5vh);
         }
         .front h1 {
-            margin-bottom: -30px;
+            margin-bottom: -0px;
             font-size: 5vh;
         }
 
@@ -552,23 +557,23 @@
                 <h1>BDA</h1>
                 <div class="images">
                     <figure class="person-figure">
-                        <img src="assets/logo.png" alt="Personne 1" class="person-photo">
+                        <img src="assets/pp/chalendar.png" alt="Personne 1" class="person-photo">
                         <figcaption>LEO</figcaption>
                     </figure>
                     <figure class="person-figure">
-                        <img src="assets/logo.png" alt="Personne 2" class="person-photo">
+                        <img src="assets/pp/gigachad.png" alt="Personne 2" class="person-photo">
                         <figcaption>THÉOPHANE</figcaption>
                     </figure>
                     <figure class="person-figure">
-                        <img src="assets/logo.png" alt="Personne 3" class="person-photo">
+                        <img src="assets/pp/jojo.png" alt="Personne 3" class="person-photo">
                         <figcaption>JONATHAN</figcaption>
                     </figure>
                     <figure class="person-figure">
-                        <img src="assets/logo.png" alt="Personne 3" class="person-photo">
+                        <img src="assets/pp/mauge.png" alt="Personne 3" class="person-photo">
                         <figcaption>NATHAN</figcaption>
                     </figure>
                     <figure class="person-figure">
-                        <img src="assets/logo.png" alt="Personne 3" class="person-photo">
+                        <img src="assets/pp/clavette.png" alt="Personne 3" class="person-photo">
                         <figcaption>THOMAS C</figcaption>
                     </figure>
                 </div>

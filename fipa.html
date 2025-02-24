@@ -63,6 +63,7 @@
             justify-content: center;
             box-shadow: 0 0 15px  rgb(231, 58, 154);}
 
+
         /* Section des images */
         .images {
             display: flex;
@@ -71,27 +72,30 @@
             max-width: 90%; /* Empêche l'étirement sur toute la largeur */
             flex-wrap: wrap; /* Permet aux images de passer à la ligne si nécessaire */
             margin:0;
+            margin-top: -40px;
         }
 
-        /* Conteneur de l'image et de la description */
-        .person-figure {
+       /* Conteneur de l'image et de la description */
+       .person-figure {
             text-align: center;
             max-width: 13vw; /* S'assure que chaque figure ne dépasse pas la taille de l'image */
         }
 
         /* Style des images */
         .person-photo {
-            width: 175px;
-            max-width: 23vh;
-            height:175px; /* L'image prend toute la largeur de son conteneur */
-            max-height: 23vh;
+            width: 200px;
+            max-width: 27vh;
+            height:200px; /* L'image prend toute la largeur de son conteneur */
+            max-height: 27vh;
             object-fit: cover;
             border-radius: 10px;
+            margin-bottom: -20px;
         }
 
         /* Style de la description */
         figcaption {
             font-size: 0.5rem;
+            gap: 27vw;
             font-family: 'Arial Black', sans-serif;
             letter-spacing: 1px;
             font-size: 0.5rem;
@@ -406,6 +410,7 @@
         height: 100vh; /* Force à remplir la hauteur de l'écran */
     }
         .images {
+            margin-top: 10px;
             display: flex;
             justify-content: center;
             flex-wrap: wrap; /* Permet aux images de passer à la ligne si l'écran est trop petit */
@@ -622,7 +627,7 @@
                         <figcaption>GABRIEL</figcaption>
                     </figure>
                     <figure class="person-figure">
-                        <img src="assets/logo.png" alt="Personne 2" class="person-photo">
+                        <img src="assets/pp/hadrien.png" alt="Personne 2" class="person-photo">
                         <figcaption>HADRIEN</figcaption>
                     </figure>
                 </div>
