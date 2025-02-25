@@ -9,40 +9,33 @@ function triggerEffect() {
     const shinyImage = document.getElementById('shiny-image');
     const linkButtons = document.getElementById('link-buttons');
 
-    // Si l'animation du logo a déjà eu lieu, on ne la relance pas
     if (logoAnimated) return;
 
-    // Masquer le logo tactile avant l'animation
     touchLogo.style.display = 'none'; // Cache le logo tactile
-
-    // Appliquer l'effet de flou au fond
     background.classList.add('filter', 'blur-lg'); // Applique un flou de taille 'lg' à l'arrière-plan
 
     // Appliquer l'animation de translation et agrandissement à l'image
-    shinyImage.style.transform = `translateY(-${window.innerHeight * 0.3}px)`; // Décalage vertical
+    shinyImage.style.transform = `translateY(-${window.innerHeight * 0.3}px)`;
     shinyImage.classList.remove('opacity-0');
-    shinyImage.classList.add('opacity-100', 'image-appear'); // Ajouter l'animation de translation et agrandissement
+    shinyImage.classList.add('opacity-100', 'image-appear');
 
-    // Marquer l'animation du logo comme jouée
     logoAnimated = true;
 
     // Appliquer les boutons avec animation
     linkButtons.classList.remove('opacity-0');
     linkButtons.classList.add('bottom-1/4', 'opacity-100');
 
-    // Ajouter l'animation d'apparition des boutons 
     const buttons = Array.from(linkButtons.children);
     buttons.forEach((button, index) => {
-        button.classList.add('pointer-events-none'); // Empêche les clics avant l'animation
+        button.classList.add('pointer-events-none'); // Désactive temporairement les clics
         setTimeout(() => {
-            button.classList.add('button-appear'); // Ajouter l'animation d'apparition
-        }, index * 150); // Décalage de l'apparition des boutons
+            button.classList.add('button-appear'); // Lancer l'animation du bouton
+        }, index * 150);
     });
 
-    // Ajouter un écouteur d'événement pour chaque bouton afin de réactiver les clics après l'animation
+    // Activer les boutons SEULEMENT après l'animation
     buttons.forEach((button) => {
         button.addEventListener('animationend', () => {
-            button.classList.add('activated'); // Ajoute la classe 'activated' après l'animation
             button.classList.remove('pointer-events-none'); // Réactive les clics après l'animation
         });
     });

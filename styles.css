@@ -132,7 +132,7 @@
         height: 50vh;
         width: auto;
         max-height: 50vh;
-        margin-top: -200px; /* Augmenter la valeur pour remonter le logo */
+        margin-top: -330px; /* Augmenter la valeur pour remonter le logo */
         position: relative; /* Utiliser position relative pour jouer sur le margin-top */
     }
 
@@ -204,8 +204,8 @@
     }
     
     .akira-button {
-        font-size: 0.8rem;
-        padding: 12px 24px;
+        font-size: 1.6vw;
+        padding: 12px 13px;
         font-family: 'Montserrat', sans-serif;
         font-weight: 1000;
         white-space: nowrap; /* Empêche le texte de se répartir sur plusieurs lignes */
