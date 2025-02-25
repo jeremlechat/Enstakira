@@ -132,7 +132,7 @@
         height: 50vh;
         width: auto;
         max-height: 50vh;
-        margin-top: -200px; /* Augmenter la valeur pour remonter le logo */
+        margin-top: -330px; /* Augmenter la valeur pour remonter le logo */
         position: relative; /* Utiliser position relative pour jouer sur le margin-top */
     }
 
