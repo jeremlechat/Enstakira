@@ -204,8 +204,8 @@
     }
     
     .akira-button {
-        font-size: 0.8rem;
-        padding: 12px 24px;
+        font-size: 1.6vw;
+        padding: 12px 13px;
         font-family: 'Montserrat', sans-serif;
         font-weight: 1000;
         white-space: nowrap; /* Empêche le texte de se répartir sur plusieurs lignes */
